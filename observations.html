@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#07151e">
+<meta name="description" content="ΦPRESS C0.9 local observation ledger, self-reported calibration registry, and masked E0 data completeness audit.">
+<title>ΦPRESS C0.9 | Measurement Ledger</title>
+<link rel="stylesheet" href="./assets/style.css"><link rel="stylesheet" href="./assets/observations.css">
+</head><body><div class="shell">
+<header class="topbar">
+<a class="brand" href="./"><span class="mark">Φ</span><span>PRESS<small>RESEARCH LAB / 369</small></span></a>
+<span class="build"><span class="pulse"></span> C0.9 · OBSERVATION LEDGER</span>
+<a class="repo" href="./preflight.html">← PREFLIGHT</a>
+</header><main>
+<section class="hero"><div class="eyebrow">MEASUREMENT PROVENANCE / NO CLOUD</div>
+<h1>Trace every <span>reading.</span></h1>
+<p>Bring together the masked C0.7 specimen roster, self-declared instruments, and real observation records. Audit every specimen and measurement before exporting an E0-compatible worksheet. Empty cells never become invented results.</p>
+<div class="hero-tags"><span>RAW-DATA REFERENCES</span><span>CALIBRATION WINDOWS</span><span>MASKED CONDITIONS</span><span>STRICT COMPLETENESS</span></div>
+</section>
+<div class="disclaimer"><strong>NO INSTRUMENTS ARE CONNECTED OR VERIFIED.</strong> This page does not collect measurements or independently authenticate calibration. Any readings you import are user-supplied and unverified. A passing ledger is data completeness, not evidence that BubbleGear cleans fabric or that an experimental setup is safe.</div>
+<section class="workflow-grid">
+<article class="panel workflow-card">
+<div class="step-label">STEP 01 / OPERATOR-KEPT PLAN</div><h2>Masked study roster</h2>
+<p>Import the <strong>blank masked assessor CSV</strong> exported from C0.7. This contains trial and specimen IDs but <strong>no treatment key</strong> and no measurements.</p>
+<label class="file-picker" for="roster-file">Import masked roster CSV<input id="roster-file" type="file" accept=".csv,text/csv"></label>
+<div class="action-line"><button class="secondary" id="blank-events" type="button" disabled>Generate observation sheet</button></div>
+<div class="receipt-state" id="roster-state">No roster loaded</div>
+</article>
+<article class="panel workflow-card">
+<div class="step-label">STEP 02 / SELF-REPORTED METROLOGY</div><h2>Instrument declarations</h2>
+<p>Import instrument calibration declarations, or add them manually below. Certificates and method references remain the researcher's responsibility.</p>
+<label class="file-picker" for="registry-file">Import instrument JSON<input id="registry-file" type="file" accept=".json,application/json"></label>
+<div class="action-line"><button class="secondary" id="blank-registry" type="button">Blank registry JSON</button><button class="secondary" id="export-registry" type="button">Export current registry</button></div>
+<div class="receipt-state" id="registry-state">No valid instruments declared</div>
+</article>
+<article class="panel workflow-card">
+<div class="step-label">STEP 03 / USER-SUPPLIED OBSERVATIONS</div><h2>Observation event log</h2>
+<p>Import one row per <strong>measurement channel and specimen</strong>. Preserve raw files and blanks. Multiple reads of one specimen are not independent new specimens.</p>
+<label class="file-picker" for="events-file">Import observation CSV<input id="events-file" type="file" accept=".csv,text/csv"></label>
+<div class="action-line"><button class="secondary" id="blank-log" type="button">Blank event CSV</button></div>
+<div class="receipt-state" id="events-state">No observations imported</div>
+</article>
+</section>
+<section class="panel instrument-panel">
+<div class="panelhead"><div><span class="overline">MANUAL DECLARATION / OPTIONAL</span><h2>Add one instrument-channel declaration</h2></div><span class="code">NOT CALIBRATION PROOF</span></div>
+<form id="instrument-form" class="instrument-form">
+<div><label for="instrument-id">Instrument ID</label><input id="instrument-id" placeholder="BALANCE-001" autocomplete="off" required maxlength="100"></div>
+<div><label for="instrument-name">Display name</label><input id="instrument-name" placeholder="Gravimetric assay instrument" autocomplete="off" required></div>
+<div><label for="instrument-measure">Measurement channel</label><select id="instrument-measure"></select></div>
+<div><label for="instrument-floor">Declared uncertainty floor (channel unit)</label><input id="instrument-floor" type="number" min="0" step="any" value="1" required></div>
+<div><label for="instrument-from">Declared calibration valid from</label><input id="instrument-from" type="date" required></div>
+<div><label for="instrument-through">Declared calibration valid through</label><input id="instrument-through" type="date" required></div>
+<div><label for="instrument-calref">Calibration / rubric record reference</label><input id="instrument-calref" placeholder="CAL-REPORT-001" maxlength="120" required></div>
+<div><label for="instrument-method">Measurement method reference</label><input id="instrument-method" placeholder="METHOD-01" maxlength="120" required></div>
+<div><label for="instrument-operator">Declared by</label><input id="instrument-operator" placeholder="LAB-OPERATOR" maxlength="120" required></div>
+<div class="add-action"><button type="submit" class="primary">Add declaration</button></div>
+</form>
+<p id="builder-error" class="builder-error" role="alert" hidden></p>
+<p class="small-note">If one physical instrument measures multiple channels, its imported JSON can declare several supported measurements with corresponding uncertainty floors. This form creates one declaration per instrument ID, so unique IDs are required.</p>
+<div id="instrument-inventory" class="inventory"></div>
+</section>
+<section class="ledger-metrics">
+<div class="metric panel"><span>PLANNED SPECIMENS</span><strong id="count-planned">0</strong><small>C0.7 masked roster</small></div>
+<div class="metric panel"><span>LOGGED EVENTS</span><strong id="count-events">0</strong><small>Unverified user inputs</small></div>
+<div class="metric panel"><span>COMPLETE SPECIMENS</span><strong id="count-complete">0</strong><small>All eight E0 channels</small></div>
+<div class="metric panel"><span>AUDIT STATUS</span><strong class="metric-status" id="audit-status">INCOMPLETE</strong><small>No physical authenticity implied</small></div>
+</section>
+<section class="audit-grid">
+<div class="panel coverage-panel">
+<div class="panelhead"><div><span class="overline">MISSINGNESS / SPECIMEN-LEVEL AUDIT</span><h2>Completeness matrix</h2></div><span class="code">NO IMPUTATION</span></div>
+<div class="table-scroll"><table><thead><tr><th>Trial</th><th>Specimen</th><th>Recorded / 8</th><th>Missing channels</th></tr></thead><tbody id="coverage-body"></tbody></table></div>
+<p class="small-note">The table shows the first 100 planned specimens. All rows are included in the exported audit receipt.</p>
+</div>
+<div class="panel audit-panel">
+<div class="panelhead"><div><span class="overline">RESEARCH DATA QUALITY</span><h2>Validation report</h2></div><span class="code">NO PRODUCT CLAIMS</span></div>
+<div class="audit-answer" id="audit-answer">Import a masked roster, an instrument register, and observation records to begin.</div>
+<h3>Issues requiring resolution</h3><ul id="audit-errors" class="audit-list"></ul>
+<h3>Provenance cautions</h3><ul id="audit-warnings" class="audit-list warning"></ul>
+<div class="export-actions">
+<button class="secondary" id="export-audit" type="button">Export audit JSON</button>
+<button class="primary" id="export-masked" type="button" disabled>Export complete masked E0 CSV</button>
+</div>
+</div>
+</section>
+<section class="next panel"><div><div class="overline">HANDOFF TO EXISTING E0 WORKFLOW</div><h2>Keep the measurements blinded.</h2>
+<p>When every specimen has a valid measurement in each required channel, export the complete masked E0 CSV. Bring it back to C0.7 to join the treatment key only after assessment is finished. The E0 Evidence Lab can then inspect the unblinded research data.</p></div><div class="nextlinks"><a href="./docs/measurement-ledger-c0-9.md">DATA AND CALIBRATION CONTRACT ↗</a><a href="./study.html">C0.7 UNBLINDING ↗</a><a href="./evidence.html">E0 EVIDENCE LAB ↗</a></div></section>
+</main><footer><span>ΦPRESS · Φ369 LABS · OPEN RESEARCH</span><span>PRIVATE LOCAL FILE PROCESSING · NO MEASUREMENTS VERIFIED</span></footer></div>
+<script type="module" src="./assets/observations.js"></script>
+</body></html>

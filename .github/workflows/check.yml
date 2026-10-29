@@ -33,3 +33,5 @@ jobs:
           node --check assets/study.js
           node --check src/preflight.mjs
           node --check assets/preflight.js
+          node --check src/observations.mjs
+          node --check assets/observations.js

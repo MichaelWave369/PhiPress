@@ -84,6 +84,18 @@
 - [ ] Collect actual blank-corrected independent textile swatch evidence after frozen protocol
 - [ ] Validate ventilation, effluent capture and textile durability with a qualified physical laboratory
 
+## E0 C0.9 · Observation ledger and calibration provenance
+- [x] Local masked-roster import from C0.7 with treatment-key exclusion
+- [x] User-declared instrument registry, method reference, calibration window and uncertainty floors
+- [x] Per-measurement timestamped observation CSV contract with specimen, blanks and raw asset references
+- [x] Strict completeness, units, duplicate channel, source reference and identity checks
+- [x] Generate blank eight-channel observation sheets and export masked E0 results only after an all-or-nothing audit
+- [x] Download full unverified audit receipts; no invented demo observations or hardware claims
+- [x] Node tests for calibration dates, masking, malformed readings and missingness
+- [ ] Obtain **actual** sensor/metrology data, certificates and independent quality review
+- [ ] Freeze a real E0 experiment registration and preserve all deviations and negative results
+- [ ] Archive raw assets with independently reviewable integrity manifests and uncertainty budgets
+
 ## Rung 2 · Credible numerical exploration
 - [ ] Establish conservation-based equations, not arbitrary efficiency scoring
 - [ ] Compare vortex geometries and a simple-jet baseline
