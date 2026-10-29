@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#08141e">
+<meta name="description" content="ΦPRESS C0.5 concept engineering bench for interchangeable garment fixtures, wet recovery and thermal finishing.">
+<title>ΦPRESS C0.5 | Modular Fixture Engineering Bench</title>
+<link rel="stylesheet" href="./assets/style.css">
+<link rel="stylesheet" href="./assets/fixture-bench.css">
+</head>
+<body>
+<div class="shell">
+<header class="topbar">
+<a class="brand" href="./"><span class="mark">Φ</span><span>PRESS<small>RESEARCH LAB / 369</small></span></a>
+<span class="build"><span class="pulse"></span> C0.5 · MODULAR HARDWARE LAB</span>
+<a class="repo" href="./twin.html">← DIGITAL TWIN</a>
+</header>
+<main>
+<section class="hero fixture-hero">
+<div class="eyebrow">CONFIGURABLE APPLIANCE ARCHITECTURE / OPEN RESEARCH</div>
+<h1>Design the <span>inside.</span></h1>
+<p>Test conceptual cabinet packaging, choose a garment fixture, and assemble the air, water, extraction and finishing paths. Export an explainable design receipt and a module list before anyone spends money on parts.</p>
+<div class="hero-tags"><span>INTERCHANGEABLE FORMS</span><span>SEGREGATED WET PATH</span><span>RECOVERY-FIRST</span><span>MEASURABLE POWER</span></div>
+</section>
+<div class="disclaimer"><strong>CONCEPTUAL HARDWARE STUDY ONLY.</strong> This is not CAD, a tested bill of materials, wiring diagram, fabrication specification, validated cleaning process, fire-safe closet enclosure, or equipment controller. The package dimensions and electrical loads are arbitrary exploration assumptions. No powered hardware is connected.</div>
+<section class="preset-bar" aria-label="Example configurations">
+<button class="secondary" type="button" data-preset="shirt">Shirt + finish</button>
+<button class="secondary" type="button" data-preset="hat">Hat care</button>
+<button class="secondary" type="button" data-preset="shoe">Shoes</button>
+<button class="secondary" type="button" data-preset="narrow">Too narrow</button>
+<button class="secondary" type="button" data-preset="battery">Battery-only</button>
+<button class="secondary" type="button" data-preset="leak">Leaking bay</button>
+</section>
+<section class="bench-grid">
+<div class="panel design-panel">
+<div class="panelhead"><div><span class="overline">PARAMETER STUDY</span><h2>Package & process</h2></div><span class="code">NO ACTUATORS</span></div>
+<div class="fields">
+<label for="fixture">Fixture cartridge</label>
+<select id="fixture">
+<option value="shirt">Shirt form</option>
+<option value="hat">Hat cradle</option>
+<option value="shoe">Shoe rack</option>
+</select>
+<label for="mode">Planned path</label>
+<select id="mode">
+<option value="watch">Storage monitoring</option>
+<option value="refresh">Air refresh</option>
+<option value="wet">BubbleGear wet clean</option>
+<option value="finish">Conditioned dry + press</option>
+<option value="cleanFinish">Wet clean → dry + press</option>
+</select>
+<div class="field-divider">EXTERNAL CABINET ENVELOPE</div>
+<label for="outerWidthMm">Width <output id="outerWidthMm-value">700 mm</output></label><input id="outerWidthMm" type="range" min="450" max="1000" step="10" value="700">
+<label for="outerDepthMm">Depth <output id="outerDepthMm-value">700 mm</output></label><input id="outerDepthMm" type="range" min="450" max="900" step="10" value="700">
+<label for="outerHeightMm">Height <output id="outerHeightMm-value">1800 mm</output></label><input id="outerHeightMm" type="range" min="1100" max="2200" step="50" value="1800">
+<div class="field-divider">WATER + CONDITIONING ASSUMPTIONS</div>
+<label for="waterDoseMl">Metered water <output id="waterDoseMl-value">120 mL</output></label><input id="waterDoseMl" type="range" min="0" max="300" step="10" value="120">
+<label for="dirtyTankCapacityMl">Dirty-water reservoir <output id="dirtyTankCapacityMl-value">600 mL</output></label><input id="dirtyTankCapacityMl" type="range" min="0" max="1500" step="50" value="600">
+<label for="finishTemperatureC">Candidate airflow temperature <output id="finishTemperatureC-value">42 °C</output></label><input id="finishTemperatureC" type="range" min="20" max="75" step="1" value="42">
+<div class="field-divider">POWER ENVELOPE</div>
+<label for="batteryWh">Battery capacity <output id="batteryWh-value">300 Wh</output></label><input id="batteryWh" type="range" min="0" max="2000" step="25" value="300">
+<label for="batteryOutputW">Continuous output <output id="batteryOutputW-value">150 W</output></label><input id="batteryOutputW" type="range" min="25" max="1200" step="25" value="150">
+</div>
+<div class="guard-toggles">
+<label><input type="checkbox" id="doorClosed" checked> Door closed</label>
+<label><input type="checkbox" id="leakDry" checked> No leak reported</label>
+<label><input type="checkbox" id="ventClear" checked> Vent path planned</label>
+<label><input type="checkbox" id="wetBayIsolated" checked> Wet bay segregated</label>
+<label><input type="checkbox" id="tankReady" checked> Collection path ready</label>
+<label><input type="checkbox" id="materialReviewed" checked> Material reviewed</label>
+<label><input type="checkbox" id="serviceAccessible" checked> Service access available</label>
+<label><input type="checkbox" id="mainsAvailable" checked> Mains supplied</label>
+</div>
+</div>
+<div class="panel layout-panel">
+<div class="panelhead"><div><span class="overline">CAVITY CLEARANCE STUDY</span><h2>Top-view fixture fit</h2></div><span class="code">SCHEMATIC</span></div>
+<div class="diagram">
+<svg id="fit-svg" viewBox="0 0 620 470" role="img" aria-label="Scaled top view showing outer cabinet, assumed cavity and fixture clearance envelope. The colors indicate whether the conceptual dimensions fit.">
+<defs><pattern id="grid-pattern" width="22" height="22" patternUnits="userSpaceOnUse"><path d="M 22 0 L 0 0 0 22" fill="none" stroke="#33505b" stroke-width=".45"/></pattern></defs>
+<rect width="620" height="470" fill="#091a25"/><rect width="620" height="470" fill="url(#grid-pattern)" opacity=".7"/>
+<rect id="outer-box" x="90" y="45" width="440" height="355" rx="5" fill="#122f38" stroke="#508d94" stroke-width="3"/>
+<rect id="cavity-box" x="120" y="80" width="380" height="285" rx="5" fill="#0c202b" stroke="#63b6b2" stroke-dasharray="7 7" stroke-width="2"/>
+<rect id="clearance-box" x="153" y="111" width="314" height="224" rx="8" fill="#2d797c55" stroke="#93e5d9" stroke-width="2"/>
+<g id="fixture-art" fill="none" stroke="#c9f8ed" stroke-width="2"><path id="fixture-path" d="M 265 185 L 310 158 L 355 185 L 374 204 L 359 232 L 343 222 L 343 296 L 277 296 L 277 222 L 261 232 L 246 204 Z"/></g>
+<text x="310" y="28" text-anchor="middle" fill="#b6e9e1" font-size="13" font-weight="700" id="outer-dim">700 × 700 mm external</text>
+<text x="310" y="436" text-anchor="middle" fill="#8daeb9" font-size="13" id="cavity-dim">600 × 550 mm cavity</text>
+<text x="310" y="454" text-anchor="middle" fill="#99e7d7" font-size="11" id="fixture-dim">530 × 420 mm fixture envelope</text>
+</svg>
+<div class="fit-caption"><span id="fit-label">SHIRT FORM</span><strong id="fit-status">FIT IN MODEL</strong></div>
+<p>Top view is dimension-scaled within an illustrative outer enclosure. Service space, structural thickness, airflow and clearances are estimates. Height is checked separately.</p>
+</div>
+<div class="fixture-details">
+<div><span>FIXTURE MOUNT</span><strong id="mount-description">—</strong></div>
+<div><span>MODEL CAVITY HEIGHT</span><strong id="cavity-height">—</strong></div>
+<div><span>REQUIRED FIT HEIGHT</span><strong id="fixture-height">—</strong></div>
+<div><span>EXPERIMENTAL MATERIAL</span><strong id="fixture-material">—</strong></div>
+</div>
+</div>
+</section>
+<section class="panel path-panel">
+<div class="panelhead"><div><span class="overline">SEPARATED PROCESS ROUTES</span><h2>Cartridge architecture</h2></div><span class="code">SEQUENTIAL</span></div>
+<div class="flow-line">
+<div class="route-card" id="flow-intake"><small>01 / FIXTURE</small><strong>Garment & seal</strong><p>Shape-preserving mount</p></div>
+<div class="flow-arrow" aria-hidden="true">→</div>
+<div class="route-card" id="flow-air"><small>02 / DRY LOOP</small><strong>Filter + airflow</strong><p>Dust / recirculation</p></div>
+<div class="flow-arrow" aria-hidden="true">→</div>
+<div class="route-card" id="flow-wet"><small>03 / WET CARTRIDGE</small><strong>Mist + BubbleGear</strong><p>Localized circulation</p></div>
+<div class="flow-arrow" aria-hidden="true">→</div>
+<div class="route-card" id="flow-recovery"><small>04 / EXTRACTION</small><strong>Effluent tank</strong><p>Liquid physically removed</p></div>
+<div class="flow-arrow" aria-hidden="true">→</div>
+<div class="route-card" id="flow-heat"><small>05 / FINISH</small><strong>Conditioned air</strong><p>Thermal exhaust to safe route</p></div>
+</div>
+<p class="route-note">Diagram shows separable modules, not a forced simultaneous flow. The actual selected schedule is sequential. Wet-side components must never discharge into dry storage; the heated module needs a separately engineered heat-rejection path.</p>
+</section>
+<section class="summary-grid">
+<div class="panel receipt-panel">
+<div class="panelhead"><div><span class="overline">FEASIBILITY RECEIPT</span><h2>Concept guard report</h2></div><span class="code">EXPLAINABLE</span></div>
+<div class="decision" id="decision"><span>SIMULATED DESIGN STATUS</span><strong id="decision-text">PLAUSIBLE IN MODEL</strong><p id="decision-context">No physical prototype has been assessed.</p></div>
+<div class="quick-metrics">
+<div><span>PEAK ACTIVE POWER</span><strong id="power-peak">—</strong></div>
+<div><span>ENERGY / CYCLE</span><strong id="energy-cycle">—</strong></div>
+<div><span>TIME / CYCLE</span><strong id="cycle-minutes">—</strong></div>
+<div><span>WATER DOSE</span><strong id="dose">—</strong></div>
+</div>
+<h3>Required checks</h3><ul id="check-list" class="check-list"></ul>
+<h3>Research cautions</h3><ul id="warnings" class="warnings"></ul>
+</div>
+<div class="panel bom-panel">
+<div class="panelhead"><div><span class="overline">MODULAR SYSTEM INVENTORY</span><h2>Conceptual BOM</h2></div><span class="code">NOT SHOPPING SPECS</span></div>
+<p class="bom-intro">The list changes with the selected treatment. Parts are functional blocks, not purchase recommendations, rated components, wiring instructions or a priced manufacturer BOM.</p>
+<div class="bom-wrap"><table class="bom-table"><thead><tr><th>Module</th><th>Path</th><th>Purpose</th></tr></thead><tbody id="bom-body"></tbody></table></div>
+<div class="export-actions">
+<button class="primary" type="button" id="export-json">Export design JSON</button>
+<button class="secondary" type="button" id="export-csv">Export BOM CSV</button>
+</div>
+</div>
+</section>
+<section class="next panel"><div><div class="overline">PHYSICAL EXPERIMENT GATES</div><h2>Design the experiment before the machine.</h2><p>Next validate swatch soils, recovery mass, leaks, materials and power with independently reviewed laboratory fixtures. The cabinet study is for choosing test questions and rejecting incompatible geometries, not telling anyone how to assemble an energized wet or heated appliance.</p></div><div class="nextlinks"><a href="./docs/fixture-bench-c0-5.md">ENGINEERING STUDY ↗</a><a href="./twin.html">MOISTURE TWIN ↗</a><a href="./closetvault.html">WARDROBE CONCEPT ↗</a></div></section>
+</main>
+<footer><span>ΦPRESS · Φ369 LABS · OPEN RESEARCH</span><span>NO ACTUATION · NO VALIDATED PRODUCT CLAIMS</span></footer>
+</div>
+<script type="module" src="./assets/fixture-bench.js"></script>
+</body></html>

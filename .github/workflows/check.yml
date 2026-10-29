@@ -25,3 +25,5 @@ jobs:
           node --check assets/supervisor.js
           node --check assets/closetvault.js
           node --check assets/twin.js
+          node --check src/fixture-bench.mjs
+          node --check assets/fixture-bench.js

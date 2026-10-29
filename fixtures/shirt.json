@@ -1,0 +1,22 @@
+{
+  "contractVersion": "phipress.fixture-manifest.v0.1",
+  "fixtureId": "shirt",
+  "displayName": "Shirt form",
+  "envelopeMm": {
+    "width": 470,
+    "depth": 360,
+    "height": 920
+  },
+  "mount": "Tensioned breathable torso",
+  "allowedModes": [
+    "watch",
+    "refresh",
+    "wet",
+    "finish",
+    "cleanFinish"
+  ],
+  "candidateMaxTemperatureC": 65,
+  "materialScope": "Cotton woven test shirt",
+  "notes": "Candidate fit only. Validate arm, sleeve and collar geometry; labels, fibers and colors before experiments.",
+  "validatedClaims": []
+}
