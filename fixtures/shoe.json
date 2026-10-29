@@ -1,0 +1,20 @@
+{
+  "contractVersion": "phipress.fixture-manifest.v0.1",
+  "fixtureId": "shoe",
+  "displayName": "Shoe rack",
+  "envelopeMm": {
+    "width": 450,
+    "depth": 430,
+    "height": 360
+  },
+  "mount": "Two-piece ventilated rack",
+  "allowedModes": [
+    "watch",
+    "refresh",
+    "wet"
+  ],
+  "candidateMaxTemperatureC": 40,
+  "materialScope": "Compatible textile footwear only",
+  "notes": "Soles, adhesives, leather, suede and coatings require individual validation. Heated finish excluded.",
+  "validatedClaims": []
+}

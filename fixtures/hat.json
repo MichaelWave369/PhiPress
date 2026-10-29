@@ -1,0 +1,20 @@
+{
+  "contractVersion": "phipress.fixture-manifest.v0.1",
+  "fixtureId": "hat",
+  "displayName": "Hat cradle",
+  "envelopeMm": {
+    "width": 380,
+    "depth": 370,
+    "height": 320
+  },
+  "mount": "Brim-preserving cradle",
+  "allowedModes": [
+    "watch",
+    "refresh",
+    "wet"
+  ],
+  "candidateMaxTemperatureC": 38,
+  "materialScope": "Washable cap only",
+  "notes": "Adhesive, brim and dye compatibility unknown. Heated finish excluded.",
+  "validatedClaims": []
+}

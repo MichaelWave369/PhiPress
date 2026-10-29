@@ -26,6 +26,12 @@ Explore the [offline advisory supervisor](./supervisor.html) that compares simul
 
 **[Open the Digital Twin lab](./twin.html).** Explore 24–72 hours of synthetic humidity, garment moisture release, cold-surface condensation, hypothetical water recovery and power use. The model explicitly conserves water mass and exports local CSV/JSON datasets. It is not calibrated, does not control hardware, and cannot validate cleaning performance. Read the [model equations and experimental validation plan](./docs/closetvault-twin.md).
 
+## Modular Fixture Bench C0.5
+
+**[Open the Fixture Engineering Bench](./fixture-bench.html)** to test conceptual cabinet geometry, alternate shirt/hat/shoe mounts, dry and wet processing routes, service-isolation guards, and example power and water constraints. Export a reproducible model receipt or conceptual module list. Descriptors in `fixtures/` follow a versioned schema and are consistency-tested.
+
+**No hardware**, safety certification, validated cleaning results, or product performance assertions are provided. Read the [C0.5 engineering study](./docs/fixture-bench-c0-5.md).
+
 ## Research priorities
 
 1. Create documented, reproducible textile swatch comparisons.
@@ -40,6 +46,8 @@ Explore the [offline advisory supervisor](./supervisor.html) that compares simul
 - `closetvault.html`: modular wardrobe concept with an interactive battery/power model.
 - `src/energy.mjs`: transparent power arithmetic (illustrative profiles, not measurements).
 - `src/twin.mjs` and `twin.html`: reduced-order moisture and energy timeline simulator, with CSV/JSON export.
+- `src/fixture-bench.mjs` and `fixture-bench.html`: concept geometry, module routes, feasibility guards, offline design and BOM exports.
+- `fixtures/` and `schemas/`: versioned declarative fixture research manifests.
 - `src/engine.mjs`: deterministic educational transport model.
 - `tests/`: lightweight model invariants and reproducibility checks.
 - `docs/architecture.md`: modules, interfaces, assumptions, and safety constraints.

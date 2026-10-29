@@ -38,6 +38,17 @@
 - [ ] Calibrate evaporation, ACH, heat balance and condensation from real measured data
 - [ ] Add real heat rejection, sensor uncertainty and surface moisture re-evaporation models
 
+## Cabinet C0.5 · Modular fixture and cartridge feasibility bench
+- [x] Interactive dimensional packaging study for shirt, hat and shoe fixtures
+- [x] Declarative, versioned fixture manifests for candidate mounts and modes
+- [x] Separately described dry circulation, nested wetting, dirty-water recovery and thermal conditioning paths
+- [x] Guard receipts for geometry, compatibility, material review, leaks, service access and wet-bay isolation
+- [x] Transparent assumed cycle power, sequential energy, water dose and battery peak gates
+- [x] Exportable study receipts and conceptual module BOM, with deterministic tests
+- [ ] Physical mockup of garment envelope, door swing and service access
+- [ ] Measured moisture/soil extraction, peak power, ventilation heat rejection and fabric tolerance
+- [ ] Independent formal safety analysis for any energized prototype
+
 ## Rung 2 · Credible numerical exploration
 - [ ] Establish conservation-based equations, not arbitrary efficiency scoring
 - [ ] Compare vortex geometries and a simple-jet baseline
