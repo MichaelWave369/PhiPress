@@ -29,3 +29,5 @@ jobs:
           node --check assets/fixture-bench.js
           node --check src/evidence.mjs
           node --check assets/evidence.js
+          node --check src/study-plan.mjs
+          node --check assets/study.js

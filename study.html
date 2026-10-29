@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#08141e">
+<meta name="description" content="ΦPRESS C0.7 E0 experiment readiness, balanced test allocation, masked assessment sheets and reproducible local unblinding.">
+<title>ΦPRESS C0.7 | Experiment Readiness</title>
+<link rel="stylesheet" href="./assets/style.css">
+<link rel="stylesheet" href="./assets/study.css">
+</head>
+<body>
+<div class="shell">
+<header class="topbar">
+<a class="brand" href="./"><span class="mark">Φ</span><span>PRESS<small>RESEARCH LAB / 369</small></span></a>
+<span class="build"><span class="pulse"></span> C0.7 · EXPERIMENT READINESS</span>
+<a class="repo" href="./evidence.html">← E0 EVIDENCE</a>
+</header>
+<main>
+<section class="hero study-hero">
+<div class="eyebrow">BLINDED ASSESSMENT / REPRODUCIBLE ALLOCATION</div>
+<h1>Plan it. <span>Prove it.</span></h1>
+<p>Make a balanced, repeatable six-condition textile test schedule. Give the operator the treatment key, give the outcome assessor a masked worksheet, and audit completed records without quietly inventing missing measurements.</p>
+<div class="hero-tags"><span>BLOCK-RANDOMIZED</span><span>MASKED ASSESSOR</span><span>OPEN PROTOCOL</span><span>ZERO CLOUD SERVICES</span></div>
+</section>
+<div class="disclaimer"><strong>NOT A COMPLETED OR REGISTERED EXPERIMENT.</strong> This page makes local planning files only. A SHA-256 fingerprint is not a trusted timestamp or proof of preregistration. No calibration, safety review, assessor blinding or measured data can be independently verified by this software.</div>
+<section class="study-grid">
+<div class="panel setup-panel">
+<div class="panelhead"><div><span class="overline">EXPERIMENT PARAMETERS</span><h2>Allocate E0 swatches</h2></div><span class="code">DRAFT</span></div>
+<form id="study-form" class="study-form">
+<label for="studyId">Study identifier</label><input id="studyId" maxlength="32" autocomplete="off" value="PHIPRESS-E0-PILOT" required>
+<label for="fabric">One standardized fabric</label><input id="fabric" maxlength="64" autocomplete="off" value="cotton" required>
+<label for="soil">One nonhazardous surrogate soil</label><input id="soil" maxlength="64" autocomplete="off" value="inert_soil_surrogate" required>
+<div class="form-pair">
+<div><label for="blocks">Independent preparation blocks</label><select id="blocks"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option></select></div>
+<div><label for="replicates">Replicates / condition / block</label><select id="replicates"><option>3</option><option>5</option><option selected>10</option><option>15</option><option>20</option></select></div>
+</div>
+<label for="seed">Reproducible allocation seed (unsigned 32-bit integer)</label><input id="seed" type="number" min="0" max="4294967295" step="1" value="369" required>
+<button class="primary" type="submit">Generate allocation</button>
+<p class="field-note">All six conditions A–F receive the same independent specimen count within each preparation block. This randomization is seeded for reproducibility, not cryptographic secrecy.</p>
+<p class="field-error" id="setup-error" role="alert" hidden></p>
+</form>
+</div>
+<div class="panel plan-panel">
+<div class="panelhead"><div><span class="overline">BLINDING SEPARATION</span><h2>Ready for a real pilot?</h2></div><span class="code">LOCAL</span></div>
+<div class="counts">
+<div><span>ASSIGNMENTS</span><strong id="total">—</strong></div>
+<div><span>PER CONDITION</span><strong id="per-group">—</strong></div>
+<div><span>BLOCKS</span><strong id="block-count">—</strong></div>
+</div>
+<div class="process-flow">
+<div class="process-step"><span>01</span><strong>Allocate</strong><small>Seeded A–F blocks</small></div>
+<div class="process-arrow">→</div>
+<div class="process-step"><span>02</span><strong>Mask</strong><small>Separate the condition key</small></div>
+<div class="process-arrow">→</div>
+<div class="process-step"><span>03</span><strong>Measure</strong><small>Operator and assessor roles</small></div>
+<div class="process-arrow">→</div>
+<div class="process-step"><span>04</span><strong>Unblind</strong><small>Check IDs, then analyze</small></div>
+</div>
+<div class="fingerprint">
+<span>PLAN SHA-256 FINGERPRINT</span><code id="fingerprint">Not generated</code>
+<p>Save the unblinded plan before experiments. A hash documents file content, but only external dated registration provides independent evidence of when it existed.</p>
+</div>
+<div class="file-actions">
+<button type="button" class="secondary" id="export-plan">Plan manifest JSON</button>
+<button type="button" class="secondary" id="export-key">Operator key CSV</button>
+<button type="button" class="primary" id="export-sheet">Masked assessor CSV</button>
+</div>
+<p class="field-note">The operator key exposes conditions. Keep it away from the assessor. The masked sheet contains no condition values and no invented numeric measurements.</p>
+</div>
+</section>
+<section class="panel inspection-panel">
+<div class="panelhead"><div><span class="overline">MASKED PREVIEW</span><h2>First twelve scheduled specimens</h2></div><span class="code">NO CONDITION KEY</span></div>
+<div class="preview-scroll">
+<table><thead><tr><th>Trial ID</th><th>Specimen</th><th>Batch</th><th>Order</th><th>Outcome entry</th></tr></thead><tbody id="preview"></tbody></table>
+</div>
+<p class="table-caption">Preview and assessor sheet intentionally omit treatment identity. The operator key is a separate download. This is assessor blinding, not double blinding.</p>
+</section>
+<section class="panel checklist-panel">
+<div class="panelhead"><div><span class="overline">E0 READINESS GATES</span><h2>Experiment checklist</h2></div><span class="code">SELF-ATTESTED</span></div>
+<div class="check-layout">
+<div id="checklist" class="checklist"></div>
+<div class="readiness-box">
+<span>SELF-REPORTED READINESS</span>
+<strong id="readiness-status">NOT READY</strong>
+<p id="readiness-desc">Checks describe actions a real experiment team must perform. Selecting them does not verify that work occurred.</p>
+</div>
+</div>
+</section>
+<section class="panel import-panel">
+<div class="panelhead"><div><span class="overline">AFTER OUTCOME COLLECTION</span><h2>Unblind and audit</h2></div><span class="code">NO DATA UPLOAD</span></div>
+<div class="import-layout">
+<div class="import-copy"><p>The assessor fills numeric fields in the masked CSV without seeing the condition key. Once data collection is complete, import it here to join the original allocation and produce an E0-compatible measured-data CSV.</p><label class="upload-label" for="measured-file">Import completed masked CSV<input type="file" id="measured-file" accept=".csv,text/csv"></label><p class="field-note">Strict audit rejects missing records, swapped specimens or batches, duplicate IDs, prefilled condition values, blank numeric fields and invalid measurements. User-provided results remain unverified.</p></div>
+<div class="audit-box">
+<span>AUDIT STATUS</span><strong id="audit-status">NO MEASUREMENTS IMPORTED</strong>
+<p id="audit-detail">No physical data have been supplied.</p>
+<div class="file-actions">
+<button type="button" class="secondary" id="export-unblinded" disabled>Unblinded E0 CSV</button>
+<button type="button" class="secondary" id="export-audit" disabled>Audit JSON</button>
+</div>
+</div>
+</div>
+</section>
+<section class="next panel"><div><div class="overline">SCIENCE BEFORE PRODUCT CLAIMS</div><h2>Now the apparatus has to earn it.</h2><p>Use real calibrated mass, effluent, water and energy measurements; preserve failed trials and blinded outcome scoring. No favorable software plot replaces physical evidence. The first honest negative result will tell us as much about BubbleGear as a positive one.</p></div><div class="nextlinks"><a href="./docs/e0-study-readiness.md">READ THE C0.7 PROTOCOL ↗</a><a href="./evidence.html">E0 ANALYSIS LAB ↗</a><a href="./docs/experiment-plan.md">EXPERIMENT DESIGN ↗</a></div></section>
+</main>
+<footer><span>ΦPRESS · Φ369 LABS · PEOPLE ABOVE PROFIT</span><span>LOCAL PLANNING · NO VERIFIED RESULTS</span></footer>
+</div>
+<script type="module" src="./assets/study.js"></script>
+</body></html>

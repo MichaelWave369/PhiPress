@@ -60,6 +60,18 @@
 - [ ] Freeze confirmatory study registration, blinded testing and realistic material/energy calibration
 - [ ] Independent measurement uncertainty and validated fabric damage assessment
 
+## E0 C0.7 · Study readiness and independent swatch allocation
+- [x] Seeded, balanced block allocation for E0 groups A–F
+- [x] Separate unblinded operator key and masked measurement worksheet
+- [x] Study manifest and SHA-256 content fingerprint without false timestamp claims
+- [x] Self-reported protocol, calibration, material and safety readiness checklist
+- [x] All-or-nothing audit for complete, uniquely identified and consistent blinded measurements
+- [x] E0 CSV unblinding with provenance and reproducible analysis receipts
+- [x] Automated plan reproducibility, mask integrity and bad-data rejection tests
+- [ ] Externally register a frozen physical study protocol **before** data collection
+- [ ] Independently verify safe test fixtures, calibrations and assessor separation
+- [ ] Conduct and publish physical pilot measurements, including negative outcomes
+
 ## Rung 2 · Credible numerical exploration
 - [ ] Establish conservation-based equations, not arbitrary efficiency scoring
 - [ ] Compare vortex geometries and a simple-jet baseline
