@@ -27,3 +27,5 @@ jobs:
           node --check assets/twin.js
           node --check src/fixture-bench.mjs
           node --check assets/fixture-bench.js
+          node --check src/evidence.mjs
+          node --check assets/evidence.js

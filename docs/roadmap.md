@@ -49,6 +49,17 @@
 - [ ] Measured moisture/soil extraction, peak power, ventilation heat rejection and fabric tolerance
 - [ ] Independent formal safety analysis for any energized prototype
 
+## E0 C0.6 · Evidence, falsification and reproducible swatch analysis
+- [x] Browser CSV import with independent specimen IDs, units and explicit source status
+- [x] Six-group registry and four prespecified exploratory pairwise comparisons
+- [x] Soil removal, recovered soil, unaccounted soil, redeposition, energy, water and damage metrics
+- [x] Guarded group comparisons with fabric/soil/batch and dose/energy mismatch detection
+- [x] Deterministic exploratory bootstrap intervals, synthetic-only demo and downloadable JSON reports
+- [x] Versioned E0 data contract, data quality tests, and method guidance
+- [ ] Collect and publish independently verifiable physical swatch data; **no such data are claimed today**
+- [ ] Freeze confirmatory study registration, blinded testing and realistic material/energy calibration
+- [ ] Independent measurement uncertainty and validated fabric damage assessment
+
 ## Rung 2 · Credible numerical exploration
 - [ ] Establish conservation-based equations, not arbitrary efficiency scoring
 - [ ] Compare vortex geometries and a simple-jet baseline
