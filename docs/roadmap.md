@@ -20,6 +20,14 @@
 - [ ] Measured temperature/RH/condensation and standby-energy dataset
 - [ ] Dedicated isolation, ventilation and thermal safety review before an actual closet installation
 
+## Cabinet C0.3 · Explainable advisory supervisor
+- [x] Local-first pure deterministic model with typed, bounded snapshots
+- [x] Door, leak, ventilation, collection tank, treatment isolation and fabric-assessment checks
+- [x] Dew-point warning and high-RH policy scenarios (provisional only)
+- [x] Mains-only gate for wet cleaning and thermal finishing; watt + watt-hour checks for battery modes
+- [x] Explainable receipt UI, scenario presets and automated invariants tests
+- [ ] Bench calibration and independent safety-rated hardware protections; model cannot control a product
+
 ## Rung 2 · Credible numerical exploration
 - [ ] Establish conservation-based equations, not arbitrary efficiency scoring
 - [ ] Compare vortex geometries and a simple-jet baseline
