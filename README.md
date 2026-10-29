@@ -44,6 +44,12 @@ The default chart is clearly labeled **synthetic demo, not physical evidence**. 
 
 This is **not trusted preregistration, verified lab work or a hardware safety approval**. Read [the C0.7 process and limits](./docs/e0-study-readiness.md). No real trials have been performed.
 
+## Physical Experiment Preflight C0.8
+
+**[Open the C0.8 Preflight Bench](./preflight.html)** to explore unpowered cabinet/fixture mockup dimensions, register proposed instruments and critical hazards, and study how assumed soil measurement uncertainty affects apparent removal and effluent recovery.
+
+No electrical, pressure or heated hardware is approved by the tool. The diagram is not CAD and all data are hypothetical or user-supplied/unverified. See [preflight protocol and scientific limits](./docs/physical-preflight-c0-8.md).
+
 ## Research priorities
 
 1. Create documented, reproducible textile swatch comparisons.
