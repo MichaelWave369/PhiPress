@@ -32,6 +32,12 @@ Explore the [offline advisory supervisor](./supervisor.html) that compares simul
 
 **No hardware**, safety certification, validated cleaning results, or product performance assertions are provided. Read the [C0.5 engineering study](./docs/fixture-bench-c0-5.md).
 
+## E0 C0.6 · Evidence and swatch measurement lab
+
+**[Open the E0 Evidence Lab](./evidence.html)** to inspect independent trial CSV files, track apparent soil removal separately from effluent recovery, compare nested-flow candidates only under explicit comparability guards, and export open analysis records.
+
+The default chart is clearly labeled **synthetic demo, not physical evidence**. Uploaded CSV readings are user-supplied and unverified. Details: [E0 data contract and experiment method](./docs/e0-evidence-lab.md).
+
 ## Research priorities
 
 1. Create documented, reproducible textile swatch comparisons.
@@ -48,6 +54,7 @@ Explore the [offline advisory supervisor](./supervisor.html) that compares simul
 - `src/twin.mjs` and `twin.html`: reduced-order moisture and energy timeline simulator, with CSV/JSON export.
 - `src/fixture-bench.mjs` and `fixture-bench.html`: concept geometry, module routes, feasibility guards, offline design and BOM exports.
 - `fixtures/` and `schemas/`: versioned declarative fixture research manifests.
+- `src/evidence.mjs`, `evidence.html`, `schemas/e0-trial.v0.1.schema.json`: E0 CSV validation, guarded comparisons and reproducible analysis export.
 - `src/engine.mjs`: deterministic educational transport model.
 - `tests/`: lightweight model invariants and reproducibility checks.
 - `docs/architecture.md`: modules, interfaces, assumptions, and safety constraints.

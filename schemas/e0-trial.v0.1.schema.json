@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/MichaelWave369/PhiPress/blob/main/schemas/e0-trial.v0.1.schema.json",
+  "title": "ΦPRESS E0 independent textile swatch trial",
+  "description": "One independent specimen; analytical amounts and water/electricity must come from documented instruments. Not proof of cleaning efficacy.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "trial_id",
+    "specimen_id",
+    "batch_id",
+    "condition",
+    "fabric",
+    "soil",
+    "initial_soil_mg",
+    "residual_soil_mg",
+    "recovered_soil_mg",
+    "water_ml",
+    "energy_wh",
+    "seconds",
+    "damage_score",
+    "redeposition_mg"
+  ],
+  "properties": {
+    "trial_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "specimen_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "batch_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "condition": {
+      "enum": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ]
+    },
+    "fabric": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "soil": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "initial_soil_mg": {
+      "type": "number",
+      "exclusiveMinimum": 0,
+      "maximum": 1000000
+    },
+    "residual_soil_mg": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "recovered_soil_mg": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "water_ml": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "energy_wh": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "seconds": {
+      "type": "number",
+      "exclusiveMinimum": 0,
+      "maximum": 86400
+    },
+    "damage_score": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 5
+    },
+    "redeposition_mg": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000000
+    }
+  }
+}
