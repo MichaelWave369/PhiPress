@@ -19,3 +19,9 @@ jobs:
         run: |
           node --check src/engine.mjs
           node --check assets/app.js
+          node --check src/energy.mjs
+          node --check src/supervisor.mjs
+          node --check src/twin.mjs
+          node --check assets/supervisor.js
+          node --check assets/closetvault.js
+          node --check assets/twin.js
