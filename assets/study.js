@@ -51,11 +51,11 @@ function updatePlan(){
   clearMerge();refreshButtons();preview();
   $('fingerprint').textContent='Computing…';
   const currentPlan=plan;
-  if(!crypto?.subtle){
+  if(typeof crypto==='undefined'||!crypto.subtle){
    $('fingerprint').textContent='SHA-256 unavailable without secure browser context';
    return;
   }
-  crypto.subtle.digest('SHA-256',new TextEncoder().encode(JSON.stringify(plan)))
+  crypto.subtle.digest('SHA-256',new TextEncoder().encode(JSON.stringify(plan,null,2)))
    .then(bytes=>{
     if(plan===currentPlan)$('fingerprint').textContent=
      [...new Uint8Array(bytes)].map(n=>n.toString(16).padStart(2,'0')).join('');
