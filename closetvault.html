@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta name="theme-color" content="#08141e">
+ <meta name="description" content="PhiPress ClosetVault, modular closet garment care concept and illustrative battery energy planner.">
+ <title>ΦPRESS ClosetVault | Wardrobe Concept</title>
+ <link rel="stylesheet" href="./assets/style.css">
+ <link rel="stylesheet" href="./assets/closetvault.css">
+</head>
+<body>
+<div class="shell">
+<header class="topbar">
+ <a class="brand" href="./"><span class="mark">Φ</span><span>PRESS<small>RESEARCH LAB / 369</small></span></a>
+ <span class="build"><span class="pulse"></span> CLOSETVAULT · CONCEPT 0.2.0</span>
+ <a class="repo" href="./">← BUBBLEGEAR LAB</a>
+</header>
+<main>
+<section class="hero closet-hero">
+ <div class="eyebrow">MODULAR GARMENT CARE / THE CLOSET CABINET</div>
+ <h1>A wardrobe with <span>purpose.</span></h1>
+ <p>A compact cabinet concept, sized for real closet integration rather than a countertop miracle. Always-on sensors, optional Φ-Midifier acoustics, and detachable ΦPRESS cleaning/finishing, each powered only when needed.</p>
+ <div class="hero-tags"><span>LOW-POWER WATCH</span><span>ISOLATED WET BAY</span><span>OPTIONAL BATTERY</span><span>NO CLOUD REQUIRED</span></div>
+</section>
+<div class="disclaimer"><strong>DESIGN STUDY — NOT A MANUFACTURED APPLIANCE.</strong> Geometry and wattages are exploratory estimates, not certified dimensions or measured performance. Heat, liquid handling and closet ventilation need independent safety engineering.</div>
+<section class="vault-grid">
+ <div class="panel vault-panel">
+  <div class="panelhead"><div><span class="overline">SYSTEM SECTION</span><h2>ClosetVault module map</h2></div><span class="code">3 / 6 / 9</span></div>
+  <div class="cabinet-graphic" role="img" aria-label="Front-view conceptual cabinet with dry garment hang zone, configurable cleaning bay and isolated removable lower power and collection drawers.">
+   <div class="case">
+    <div class="glass-door">
+      <div class="cabinet-lights">ΦPRESS · CLOSETVAULT <span>◉ ONLINE-LOCAL</span></div>
+      <div class="bar"><i></i><i></i><i></i></div>
+      <div class="hang-zone" id="zone-dry">
+       <svg class="hanger" viewBox="0 0 105 130" aria-hidden="true"><path d="M52 19 C52 3 70 2 70 18 C70 27 55 28 53 39" fill="none" stroke="#90c9bf" stroke-width="3"/><path d="M53 39 L95 65 L87 77 L87 123 L18 123 L18 77 L10 65 Z" fill="#204752" stroke="#84d6c8" stroke-width="2"/><path d="M51 39 L52 123 M31 76 L74 76" fill="none" stroke="#68ada7" stroke-width="1.5"/></svg>
+       <span class="zone-stamp">DRY STORAGE + MONITORING</span>
+      </div>
+      <div class="treatment-zone" id="zone-treatment"><div class="bubbles"><b></b><b></b><b></b><b></b><b></b><b></b></div><span>ISOLATABLE ΦPRESS CARTRIDGE</span><small>Wetting → removal → recovery → drying</small></div>
+      <div class="service-zone" id="zone-service"><div class="mini-tray"><div>POWER / CONTROL</div><div>WATER / RECOVERY</div></div><span>REMOVABLE SERVICE DRAWERS</span></div>
+    </div>
+    <div class="door-handle"></div>
+   </div>
+   <p>Illustrative configuration. Wet cleaning and dry garment storage must be physically isolated, or run in separate fully recovered modes. No claims about capacity or actual engineering fit.</p>
+  </div>
+ </div>
+ <div class="panel modules">
+   <div class="panelhead"><div><span class="overline">THREE INDEPENDENT LAYERS</span><h2>Smart only when useful</h2></div></div>
+   <article class="module-card" data-zone="dry"><div class="module-icon">01</div><div><h3>ClosetVault / preservation</h3><p>Closet temperature, humidity and leak sensing. Scheduled airflow, removable filters and manual maintenance. Prevent condensation; don't deliberately add humidity to fabrics.</p><span class="module-hint">ALWAYS READY · LOW POWER</span></div></article>
+   <article class="module-card" data-zone="treatment"><div class="module-icon">02</div><div><h3>ΦPRESS / active care</h3><p>Detachable BubbleGear wet-clean cartridge, dirty-water isolation, compatible garment form, drying and shape finishing. Active-only, not 24/7.</p><span class="module-hint">DEMAND ONLY · AC PREFERRED</span></div></article>
+   <article class="module-card" data-zone="service"><div class="module-icon">03</div><div><h3>Φ-Midifier / optional accessory</h3><p>Preserve the earlier sound, light and vibration concept as a separately isolated experimental module. No presumed sterilization, stain removal or therapeutic claims.</p><span class="module-hint">LOW ENERGY · INDEPENDENTLY TESTED</span></div></article>
+   <div class="installation-note"><strong>Closet reality check</strong><p>Any powered dehumidifier or heater rejects heat. A tight, unventilated closet can trap it. The cabinet needs manufacturer/engineering-approved airflow paths, anti-tip support, moisture containment and service access.</p></div>
+ </div>
+</section>
+<section class="power-section panel" id="power">
+ <div class="panelhead"><div><span class="overline">POWER LAB / OFFLINE</span><h2>Could it run on a charge?</h2></div><span class="code">ASSUMPTION CALCULATOR</span></div>
+ <div class="power-grid">
+  <div class="power-inputs">
+    <label for="power-mode">Example operating profile</label>
+    <select id="power-mode">
+      <option value="watch">Sensor watch</option>
+      <option value="preserve">Preservation airflow</option>
+      <option value="midifier">Φ-Midifier vibration</option>
+      <option value="refresh">Gentle refresh</option>
+      <option value="bubblegear">BubbleGear wet cleaning (no heated dry)</option>
+      <option value="finish">Thermal dry + press</option>
+    </select>
+    <label for="battery">Certified battery capacity <span id="battery-value">300 Wh</span></label>
+    <input id="battery" type="range" min="100" max="3000" value="300" step="50">
+    <label for="output">Certified continuous power limit <span id="output-value">150 W</span></label>
+    <input id="output" type="range" min="50" max="2000" value="150" step="50">
+    <label for="efficiency">Usable energy factor <span id="efficiency-value">85%</span></label>
+    <input id="efficiency" type="range" min="60" max="95" value="85" step="5">
+    <p class="power-note" id="profile-note">Monitoring only.</p>
+  </div>
+  <div class="power-results">
+    <div class="result-lead"><span>BATTERY STATUS</span><strong id="power-status" aria-live="polite">SUPPORTED BY MODEL</strong></div>
+    <div class="power-cards">
+      <div><span>ILLUSTRATIVE PEAK</span><strong id="peak">1.5 W</strong></div>
+      <div><span>ENERGY / DAILY PROFILE</span><strong id="daily">36 Wh</strong></div>
+      <div><span>USABLE BATTERY</span><strong id="usable">255 Wh</strong></div>
+      <div><span>EST. RUNTIME / PROFILE DAILY</span><strong id="days">7.1 days</strong></div>
+    </div>
+    <div class="power-bar"><div id="battery-fill"></div></div>
+    <p class="power-note" id="power-detail">Values are illustrative. Real battery ratings, inverter surge, charging losses, temperatures, standby loads and thermal cycles will change results.</p>
+  </div>
+ </div>
+ <div class="power-foot">Profiles assume one representative daily cycle where applicable, plus background monitoring for the remaining hours. Active heating is not assumed suitable for a small wardrobe battery. Never charge an uncertified pack inside the wet garment bay.</div>
+</section>
+<section class="next panel"><div><div class="overline">BUILD THIS IN LAYERS</div><h2>The right first prototype</h2><p>Begin with a monitored, ventilated dry cabinet and battery arithmetic. Separately test ΦPRESS cleaning and moisture recovery. Only merge them once the wet zone, control interlocks and thermal exhaust are demonstrably safe.</p></div><div class="nextlinks"><a href="./docs/closetvault-concept.md">DESIGN SPEC ↗</a><a href="./docs/roadmap.md">ROADMAP ↗</a><a href="./">BUBBLEGEAR LAB ↗</a></div></section>
+</main>
+<footer><span>ΦPRESS · Φ369 LABS · PEOPLE ABOVE PROFIT</span><span>ILLUSTRATIVE MODEL · ZERO HARDWARE CLAIMS</span></footer>
+</div>
+<script type="module" src="./assets/closetvault.js"></script>
+</body>
+</html>
