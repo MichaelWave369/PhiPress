@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#08141e">
+<meta name="description" content="ΦPRESS ClosetVault 24-72 hour moisture and energy digital twin. Educational mass-balance simulation, not hardware control.">
+<title>ΦPRESS | ClosetVault Digital Twin C0.4</title>
+<link rel="stylesheet" href="./assets/style.css"><link rel="stylesheet" href="./assets/twin.css">
+</head>
+<body>
+<div class="shell">
+<header class="topbar">
+<a class="brand" href="./"><span class="mark">Φ</span><span>PRESS<small>RESEARCH LAB / 369</small></span></a>
+<span class="build"><span class="pulse"></span> DIGITAL TWIN C0.4 · OFFLINE</span>
+<a class="repo" href="./supervisor.html">← SUPERVISOR</a>
+</header>
+<main>
+<section class="hero twin-hero">
+<div class="eyebrow">REDUCED-ORDER PHYSICS / RESEARCH BENCH</div>
+<h1>What happens <span>overnight?</span></h1>
+<p>Watch humidity, cold-surface condensation, garment moisture and power usage evolve for 24–72 simulated hours. Explore why a fan alone does not dehumidify a closet, and what actual water recovery might cost.</p>
+<div class="hero-tags"><span>WATER MASS BALANCE</span><span>10-MINUTE TIMESTEPS</span><span>HUMIDITY + DEW POINT</span><span>ENERGY ACCOUNTING</span></div>
+</section>
+<div class="disclaimer" role="note"><strong>RESEARCH SIMULATION, NOT A VALIDATED APPLIANCE.</strong> Parameters for garment evaporation, infiltration, condensate and electrical loads are hypothetical. The chamber temperature is fixed, no heat transfer is simulated, and this software cannot control equipment or certify fabric safety.</div>
+<section class="scenario-row" aria-label="Predefined simulations">
+<button type="button" class="secondary" data-scenario="normal">Ordinary closet</button>
+<button type="button" class="secondary" data-scenario="humid">Muggy room</button>
+<button type="button" class="secondary" data-scenario="wetshirt">Damp shirt</button>
+<button type="button" class="secondary" data-scenario="drying">Active recovery</button>
+<button type="button" class="secondary" data-scenario="battery">Battery only</button>
+</section>
+<section class="twin-layout">
+<div class="panel controls-panel">
+ <div class="panelhead"><div><span class="overline">EXPERIMENT PARAMETERS</span><h2>Configure the closet</h2></div><span class="code">SYNTHETIC</span></div>
+ <div class="inputs">
+  <label for="mode">Study schedule</label><select id="mode">
+   <option value="watch">Watch: sensors only</option>
+   <option value="fan">Fan: 10 min per hour</option>
+   <option value="dry">Recovery: RH 60% on / 55% off (AC only)</option>
+  </select>
+  <label for="hours">Study duration</label><select id="hours">
+   <option value="24">24 hours</option><option value="48">48 hours</option><option value="72">72 hours</option>
+  </select>
+  <label for="ambientRH">Room humidity <output id="ambientRH-value">55%</output></label><input type="range" id="ambientRH" min="15" max="95" step="1" value="55">
+  <label for="initialRH">Starting cabinet RH <output id="initialRH-value">48%</output></label><input type="range" id="initialRH" min="15" max="95" step="1" value="48">
+  <label for="surfaceTemperatureC">Coldest cabinet surface <output id="surfaceTemperatureC-value">20 °C</output></label><input type="range" id="surfaceTemperatureC" min="0" max="40" step="1" value="20">
+  <label for="garmentWaterG">Garment water reserve <output id="garmentWaterG-value">9 g</output></label><input type="range" id="garmentWaterG" min="0" max="120" step="1" value="9">
+  <label for="evaporationGPerHour">Moisture release rate <output id="evaporationGPerHour-value">0.7 g/h</output></label><input type="range" id="evaporationGPerHour" min="0" max="5" step="0.1" value="0.7">
+  <label for="airChangesPerHour">External air changes <output id="airChangesPerHour-value">0.22 ACH</output></label><input type="range" id="airChangesPerHour" min="0" max="2" step="0.02" value="0.22">
+  <label for="batteryCapacityWh">Battery nominal capacity <output id="batteryCapacityWh-value">300 Wh</output></label><input type="range" id="batteryCapacityWh" min="0" max="1500" step="25" value="300">
+  <div class="checks">
+   <label><input id="hasMains" type="checkbox" checked> Mains available</label>
+   <label><input id="ventClear" type="checkbox" checked> Vent path reported clear</label>
+   <label><input id="leakClear" type="checkbox" checked> No leak reported</label>
+   <label><input id="recoveryAvailable" type="checkbox" checked> Recovery tank available</label>
+  </div>
+ </div>
+ <p class="note">Other fixed example assumptions: cabinet air volume 1 m³, air temperature 22 °C, ambient temperature 22 °C, 85% battery usability, internal fan 8 W, monitoring 1.5 W, hypothetical water-recovery module 65 W and 8 g/h. See the model notes for limitations.</p>
+</div>
+<div class="panel results-panel">
+ <div class="panelhead"><div><span class="overline">TIME-SERIES OUTPUT</span><h2>Cabinet environment</h2></div><span class="code">24–72 HRS</span></div>
+ <div class="chart-frame">
+  <canvas id="rh-chart" role="img" aria-label="Line chart of simulated cabinet and ambient relative humidity over time"></canvas>
+ </div>
+ <div class="chart-legend"><span><i class="dot-cabinet"></i> Cabinet RH</span><span><i class="dot-ambient"></i> Room RH (reference)</span><span><i class="dot-zone"></i> 65% caution threshold</span></div>
+ <div class="metric-grid">
+  <div><span>FINAL CABINET RH</span><strong id="final-rh">—</strong></div>
+  <div><span>HOURS AT/ABOVE 65% RH</span><strong id="high-hours">—</strong></div>
+  <div><span>WATER ON COLD SURFACE</span><strong id="surface-water">—</strong></div>
+  <div><span>WATER COLLECTED IN TANK</span><strong id="tank-water">—</strong></div>
+  <div><span>TOTAL ELECTRICITY</span><strong id="total-energy">—</strong></div>
+  <div><span>BATTERY REMAINING</span><strong id="battery-rem">—</strong></div>
+ </div>
+ <div class="finding" id="finding" aria-live="polite"></div>
+ <div class="export-actions">
+  <button type="button" class="primary" id="export-csv">Export time-series CSV</button>
+  <button type="button" class="secondary" id="export-json">Export full model JSON</button>
+ </div>
+</div>
+</section>
+<section class="panel evidence">
+<div><span class="overline">MODEL ACCOUNTABILITY</span><h2>No disappearing water.</h2>
+<p>The twin accounts for initial humidity, finite garment moisture, exchange with surrounding room air, water collected in a hypothetical recovery tank, and water condensed onto cabinet surfaces. A closed water balance is a useful software invariant, but does not validate any physical cleaning claims.</p></div>
+<div class="balance"><span>WATER MASS-BALANCE RESIDUAL</span><strong id="balance-error">—</strong><small>Calculated from unrounded internal values</small><span>RECOVERY / RESTRICTION HOURS</span><strong id="recovery-hours">—</strong><small id="restriction-detail"></small></div>
+</section>
+<section class="next panel"><div><div class="overline">FROM MODEL TO INSTRUMENTATION</div><h2>What would prove this?</h2><p>Log real cabinet temperature, surface temperature, humidity, water collected, electrical energy and garment mass. Use measured data to fit the evaporation and infiltration assumptions, and report uncertainty. An elegant chart without validation is still just an elegant chart.</p></div><div class="nextlinks"><a href="./docs/closetvault-twin.md">PHYSICS + VALIDATION ↗</a><a href="./supervisor.html">ADVISORY SUPERVISOR ↗</a><a href="./closetvault.html">CABINET DESIGN ↗</a></div></section>
+</main>
+<footer><span>ΦPRESS · Φ369 LABS · OPEN RESEARCH</span><span>NO DEVICES OR EXTERNAL SERVICES CONNECTED</span></footer>
+</div>
+<script type="module" src="./assets/twin.js"></script>
+</body></html>

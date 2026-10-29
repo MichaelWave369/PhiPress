@@ -28,6 +28,16 @@
 - [x] Explainable receipt UI, scenario presets and automated invariants tests
 - [ ] Bench calibration and independent safety-rated hardware protections; model cannot control a product
 
+## Cabinet C0.4 · Reduced-order moisture and energy digital twin
+- [x] Browser-based 24–72 hour study with fixed 10-minute simulation steps
+- [x] Water mass conservation across cabinet air, garments, outside exchange, surfaces and collection tank
+- [x] Explicit fan internal recirculation (not dehumidification) and illustrative AC-only water recovery
+- [x] Energy budget and finite battery depletion without negative charge
+- [x] High-RH and cold-surface condensation tracking, with CSV and JSON exports
+- [x] Determinism, bookkeeping and failure-path tests
+- [ ] Calibrate evaporation, ACH, heat balance and condensation from real measured data
+- [ ] Add real heat rejection, sensor uncertainty and surface moisture re-evaporation models
+
 ## Rung 2 · Credible numerical exploration
 - [ ] Establish conservation-based equations, not arbitrary efficiency scoring
 - [ ] Compare vortex geometries and a simple-jet baseline

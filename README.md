@@ -22,6 +22,10 @@ Read [the cabinet architecture and constraints](./docs/closetvault-concept.md).
 
 Explore the [offline advisory supervisor](./supervisor.html) that compares simulated temperature, relative humidity, dew-point margin, leak, vent, fabric, tank, battery and AC constraints against proposed operating modes. It produces explainable receipts. It is not connected to equipment and is explicitly **not a safety controller**. See [Supervisor design notes](./docs/closetvault-supervisor.md).
 
+## ClosetVault C0.4 · moisture and energy digital twin
+
+**[Open the Digital Twin lab](./twin.html).** Explore 24–72 hours of synthetic humidity, garment moisture release, cold-surface condensation, hypothetical water recovery and power use. The model explicitly conserves water mass and exports local CSV/JSON datasets. It is not calibrated, does not control hardware, and cannot validate cleaning performance. Read the [model equations and experimental validation plan](./docs/closetvault-twin.md).
+
 ## Research priorities
 
 1. Create documented, reproducible textile swatch comparisons.
@@ -35,6 +39,7 @@ Explore the [offline advisory supervisor](./supervisor.html) that compares simul
 - `index.html` and `assets/`: interactive browser BubbleGear research bench.
 - `closetvault.html`: modular wardrobe concept with an interactive battery/power model.
 - `src/energy.mjs`: transparent power arithmetic (illustrative profiles, not measurements).
+- `src/twin.mjs` and `twin.html`: reduced-order moisture and energy timeline simulator, with CSV/JSON export.
 - `src/engine.mjs`: deterministic educational transport model.
 - `tests/`: lightweight model invariants and reproducibility checks.
 - `docs/architecture.md`: modules, interfaces, assumptions, and safety constraints.
