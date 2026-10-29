@@ -96,6 +96,18 @@
 - [ ] Freeze a real E0 experiment registration and preserve all deviations and negative results
 - [ ] Archive raw assets with independently reviewable integrity manifests and uncertainty budgets
 
+## C1.0 · Evidence integrity and review package
+- [x] Browser SHA-256 hashing of selected local source files, with explicit size/count limits
+- [x] Versioned sorted file manifest with reference ID, filename, role, byte length and full hex digest
+- [x] Re-import of saved manifest and independent local byte-for-byte digest recheck
+- [x] Observation-to-file references for raw measurements, blanks, method and calibration records
+- [x] Strict rejection of missing files, altered hashes, duplicate IDs and incorrect evidence roles
+- [x] First-order Type A / Type B uncertainty breakdown with source-reference review
+- [x] Exportable integrity package with no embedded raw data and no false provenance claims
+- [ ] Independent trust anchor, witnessed file retention, independently authenticated calibration
+- [ ] Qualified safety review and controlled real physical E0 test data
+- [ ] Independent statistical/materials review before any appliance performance claim
+
 ## Rung 2 · Credible numerical exploration
 - [ ] Establish conservation-based equations, not arbitrary efficiency scoring
 - [ ] Compare vortex geometries and a simple-jet baseline
