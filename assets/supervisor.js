@@ -21,7 +21,7 @@ function update(){
  const values=read();
  receipt=evaluate(values);
  for(const [key,id] of Object.entries(numberIds)){
-   const unit=key==='humidityRH'?'%':key.includes('temperatureC')||key==='temperatureC'?'°C':key==='batteryContinuousW'?'W':'Wh';
+   const unit=key==='humidityRH'?'%':(key==='temperatureC'||key==='surfaceTemperatureC')?'°C':key==='batteryContinuousW'?'W':'Wh';
    $(id+'-out').textContent=String(values[key])+' '+unit;
  }
  const state=$('decision-status');
