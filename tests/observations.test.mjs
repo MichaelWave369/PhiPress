@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
  REGISTRY_SCHEMA,MEASURES,EVENT_COLUMNS,blankRegistry,blankEventsCSV,
- parseTableCSV,tableCSV,validateRegistry,validateMaskedRoster,
+ parseTableCSV,tableCSV,eventTemplateCSV,validateRegistry,validateMaskedRoster,
  inspectLedger,toMaskedE0CSV
 } from '../src/observations.mjs';
 import { createPlan,assessorTemplateCSV } from '../src/study-plan.mjs';
@@ -44,6 +44,17 @@ test('CSV parser safely round trips quotations, commas and newlines',()=>{
  assert.deepEqual(parseTableCSV(csv,EVENT_COLUMNS),[{...e}]);
  assert.throws(()=>parseTableCSV('other,header\n1,2',EVENT_COLUMNS),/header/);
  assert.throws(()=>parseTableCSV(EVENT_COLUMNS.join(',')+'\n"unterminated',EVENT_COLUMNS),/Unclosed/);
+});
+test('masked observation template has eight blank channels for every swatch',()=>{
+ const template=eventTemplateCSV(roster);
+ const rows=parseTableCSV(template,EVENT_COLUMNS);
+ assert.equal(rows.length,roster.rows.length*8);
+ assert.ok(rows.every(x=>x.value===''&&x.standard_uncertainty===''&&x.instrument_id===''&&x.unit===MEASURES[x.measurement].unit));
+ assert.ok(rows.every(x=>!Object.hasOwn(x,'condition')));
+});
+test('malformed register measurement lists cannot crash the validator',()=>{
+ const bad={...instruments[0],supported_measurements:'not-an-array'};
+ assert.equal(validateRegistry({schema:REGISTRY_SCHEMA,instruments:[bad]}).ok,false);
 });
 test('registry declarations are explicitly unverified and tied to method and uncertainty floors',()=>{
  assert.equal(registry.ok,true);

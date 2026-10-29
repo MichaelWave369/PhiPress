@@ -91,7 +91,8 @@ export function validateRegistry(input){
     ||supported_measurements.some(x=>!Object.hasOwn(MEASURES,x)))bad.push('supported_measurements');
   if(!dateOnly(valid_from)||!dateOnly(valid_through)||valid_from>valid_through)bad.push('calibration window');
   if(!uncertainty_floor||typeof uncertainty_floor!=='object'
-    ||supported_measurements?.some(x=>!finite(uncertainty_floor[x],0,1_000_000)))bad.push('uncertainty_floor');
+    ||!Array.isArray(supported_measurements)
+    ||supported_measurements.some(x=>!finite(uncertainty_floor[x],0,1_000_000)))bad.push('uncertainty_floor');
   if(!stringOk(calibration_reference)||!stringOk(method_reference)||!stringOk(declared_by))bad.push('calibration/method/operator reference');
   if(bad.length)errors.push(tag+': '+bad.join(', '));
   else byId.set(instrument_id,{
@@ -120,6 +121,21 @@ export function validateMaskedRoster(csvText){
  }
  return {schema:'phipress.e0.masked-roster.v0.9',rows:out,
   provenance:'IMPORTED MASKED TEMPLATE; NOT INDEPENDENTLY REGISTERED'};
+}
+/**
+ * Generate a masked sheet with all numeric and provenance fields blank.
+ * Never treat a template as observations.
+ */
+export function eventTemplateCSV(roster){
+ if(!roster?.rows?.length)throw new Error('Load a masked C0.7 roster first');
+ const rows=roster.rows.flatMap(trial=>Object.entries(MEASURES).map(([name,metric])=>({
+  record_id:trial.trial_id+'-'+name,
+  trial_id:trial.trial_id,specimen_id:trial.specimen_id,batch_id:trial.batch_id,
+  measurement:name,value:'',unit:metric.unit,standard_uncertainty:'',
+  instrument_id:'',observed_at_utc:'',operator_id:'',
+  raw_reference:'',blank_reference:'',method_reference:'',notes:''
+ })));
+ return tableCSV(EVENT_COLUMNS,rows);
 }
 export function inspectLedger(events,registry,roster){
  const errors=[],warnings=[];

@@ -50,6 +50,12 @@ This is **not trusted preregistration, verified lab work or a hardware safety ap
 
 No electrical, pressure or heated hardware is approved by the tool. The diagram is not CAD and all data are hypothetical or user-supplied/unverified. See [preflight protocol and scientific limits](./docs/physical-preflight-c0-8.md).
 
+## Measurement Ledger C0.9 · Traceable observation infrastructure
+
+**[Open the C0.9 Measurement Ledger](./observations.html)** to import the blank C0.7 masked study roster, register **self-declared** instrument calibration/rubric metadata, record a separate measurement event per specimen and E0 channel, and audit all eight measurements before exporting a still-masked result sheet.
+
+The ledger has **no physical equipment connection**, no measurement verification, and no fabricated sample results. Missing measurements are not imputed; raw-data references and declared calibration windows are required. Read the [C0.9 data/provenance contract](./docs/measurement-ledger-c0-9.md).
+
 ## Research priorities
 
 1. Create documented, reproducible textile swatch comparisons.
