@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#081520">
+<meta name="description" content="ΦPRESS C1.0: local SHA-256 raw file integrity, C0.9 reference audit and exploratory uncertainty budget.">
+<title>ΦPRESS C1.0 | Evidence Integrity Lab</title>
+<link rel="stylesheet" href="./assets/style.css"><link rel="stylesheet" href="./assets/integrity.css">
+</head><body><div class="shell">
+<header class="topbar">
+<a class="brand" href="./"><span class="mark">Φ</span><span>PRESS<small>RESEARCH LAB / 369</small></span></a>
+<span class="build"><span class="pulse"></span> C1.0 · EVIDENCE INTEGRITY</span>
+<a class="repo" href="./observations.html">← MEASUREMENT LEDGER</a>
+</header>
+<main>
+<section class="hero"><div class="eyebrow">OPEN SCIENCE / LOCAL CRYPTOGRAPHIC FINGERPRINTS</div>
+<h1>Keep the <span>receipts.</span></h1>
+<p>Fingerprint raw measurement files in your browser, link every C0.9 observation to its source record, and document where uncertainty estimates came from. Everything stays local unless you deliberately export it.</p>
+<div class="hero-tags"><span>SHA-256 FILE BYTES</span><span>STRICT REFERENCE LINKS</span><span>TRACEABLE COMPONENTS</span><span>NO CLOUD REQUIRED</span></div>
+</section>
+<div class="disclaimer"><strong>FINGERPRINTS ARE NOT PROOF OF REAL EXPERIMENTS.</strong> Hashing proves that bytes match a chosen digest. This software cannot authenticate who created a file, whether measurements are genuine, whether calibration certificates are legitimate, or when an experiment was registered. Hardware and laboratory safety still require independent qualified review.</div>
+
+<section class="intro-grid">
+<article class="panel source-card"><div class="step">01 / IMPORT A PRIOR RECEIPT</div><h2>C0.9 observation audit</h2>
+<p>Load the JSON audit exported from the Measurement Ledger. It includes the masked roster, self-declared instrument register and observation records, without treatment allocation keys.</p>
+<label for="c09-file" class="file-button">Import C0.9 audit JSON<input id="c09-file" type="file" accept=".json,application/json"></label>
+<div class="status" id="source-status" role="status">No C0.9 audit loaded</div></article>
+<article class="panel source-card"><div class="step">02 / SELECT LOCAL SOURCE FILES</div><h2>Calculate actual file hashes</h2>
+<p>Choose the raw instrument files, blank-control records, calibration documents and method documents referenced by your observations. These files never leave your browser.</p>
+<label for="raw-files" class="file-button">Select local evidence files<input id="raw-files" type="file" multiple></label>
+<div class="status" id="file-status" role="status">No local evidence files selected</div></article>
+<article class="panel source-card"><div class="step">03 / OPTIONAL INDEPENDENT RECHECK</div><h2>Verify a saved manifest</h2>
+<p>Import a previously exported manifest, then select the corresponding original files. The tool checks actual SHA-256 and file sizes against the saved values.</p>
+<label for="manifest-file" class="file-button">Import existing manifest JSON<input id="manifest-file" type="file" accept=".json,application/json"></label>
+<div class="status" id="manifest-status" role="status">Manifest will be built from selected files</div></article>
+</section>
+
+<section class="panel assets-panel">
+<div class="panelhead"><div><span class="overline">LOCAL SOURCE INVENTORY</span><h2>Evidence file registry</h2></div><span class="code">BROWSER WEB CRYPTO</span></div>
+<p class="panel-note">Set an exact <strong>reference ID</strong> that matches the observation's <code>raw_reference</code>, <code>blank_reference</code>, <code>method_reference</code> or the instrument's <code>calibration_reference</code>. Assign the correct role. The filename is stored separately, together with its real SHA-256 digest and byte length.</p>
+<div class="table-scroll"><table><thead><tr><th>File / hash</th><th>Reference ID</th><th>Evidence category</th></tr></thead><tbody id="asset-rows"><tr><td colspan="3">Choose files above to calculate their SHA-256.</td></tr></tbody></table></div>
+<div class="panel-actions"><button id="export-manifest" class="secondary" type="button" disabled>Export SHA-256 manifest</button><span id="asset-issues" role="status">No files hashed.</span></div>
+</section>
+<section class="two-grid">
+<div class="panel audit-panel">
+<div class="panelhead"><div><span class="overline">FILE MATCHING</span><h2>Integrity verification</h2></div><span class="code">BYTE COMPARISON</span></div>
+<div class="result-line"><span>LOCAL FILES MATCH THE SAVED MANIFEST</span><strong id="verify-status">NOT CHECKED</strong></div>
+<p class="panel-note" id="verify-detail">To recheck an independent saved manifest, import it and select the same local files.</p>
+</div>
+<div class="panel audit-panel">
+<div class="panelhead"><div><span class="overline">PROVENANCE LINKS</span><h2>Observation references</h2></div><span class="code">UNVERIFIED</span></div>
+<div class="result-line"><span>C0.9 CHANNELS AND ALL REFERENCES</span><strong id="link-status">NOT CHECKED</strong></div>
+<p class="panel-note" id="link-detail">The model checks references against declared file roles. It never verifies that those files are genuine lab results.</p>
+</div>
+</section>
+<section class="panel issues-panel">
+<div class="panelhead"><div><span class="overline">EXPLAINABLE FAILURE RECEIPTS</span><h2>What needs attention?</h2></div><span class="code">FAIL CLOSED</span></div>
+<ul id="error-rows" class="errors-list"><li>Load data and evidence assets to inspect completeness.</li></ul>
+</section>
+
+<section class="panel uncertainty-panel">
+<div class="panelhead"><div><span class="overline">MEASUREMENT SCIENCE</span><h2>Uncertainty component worksheet</h2></div><span class="code">HYPOTHETICAL BY DEFAULT</span></div>
+<div class="uncertainty-grid">
+<div class="uncertainty-inputs">
+<p>Decompose one reported standard uncertainty into repeatability (Type A) and declared Type B components. Enter a source reference for each term before calling the calculation documented. This worksheet has no access to actual certificates.</p>
+<label for="measure">Measurement channel</label><select id="measure"></select>
+<label for="reported-u">Reported standard uncertainty</label><input id="reported-u" type="number" min="0" max="1000000" step="any" value="1">
+<div class="input-pairs">
+<div><label for="component-1">Repeatability u (A)</label><input type="number" min="0" step="any" value="0.5" id="component-1"></div>
+<div><label for="reference-1">A source reference</label><input id="reference-1" placeholder="Actual analysis file ID"></div>
+<div><label for="component-2">Calibration u (B)</label><input type="number" min="0" step="any" value="0.5" id="component-2"></div>
+<div><label for="reference-2">B source reference</label><input id="reference-2" placeholder="Actual calibration ID"></div>
+<div><label for="component-3">Blank correction u (B)</label><input type="number" min="0" step="any" value="0.5" id="component-3"></div>
+<div><label for="reference-3">Blank source reference</label><input id="reference-3" placeholder="Actual blank file ID"></div>
+<div><label for="component-4">Resolution u (B)</label><input type="number" min="0" step="any" value="0.5" id="component-4"></div>
+<div><label for="reference-4">Resolution source reference</label><input id="reference-4" placeholder="Instrument specification ID"></div>
+</div>
+</div>
+<div class="uncertainty-results">
+<div class="unc-title" id="unc-provenance">EXAMPLE INPUTS · NOT PHYSICAL MEASUREMENTS</div>
+<div class="unc-cards">
+<div><span>ROOT-SUM-OF-SQUARES STANDARD u</span><strong id="combined-u">—</strong></div>
+<div><span>EXPANDED u, k=2</span><strong id="expanded-u">—</strong></div>
+<div><span>REPORTED u AGREEMENT</span><strong id="agree-u">—</strong></div>
+<div><span>ALL SOURCE FIELDS PRESENT</span><strong id="refs-u">NO</strong></div>
+</div>
+<p class="panel-note">Assumes independent uncertainty components. A coverage factor of two is not automatically a 95% confidence interval. Source reference strings are user assertions and must be checked against actual calibration, assay and raw files.</p>
+<ul id="unc-errors" class="errors-list"></ul>
+<div class="panel-actions"><button id="export-uncertainty" type="button" class="secondary">Export uncertainty review JSON</button></div>
+</div>
+</div>
+</section>
+<section class="panel export-panel">
+<div><div class="overline">VERSIONED, REVIEWABLE EVIDENCE PACKAGE</div><h2>One receipt, every limitation.</h2><p>Export a local JSON review containing the manifest, local hash verification results, links to the original observation ledger, the uncertainty example and the unresolved issues. Raw files remain separate and must be preserved alongside this receipt.</p></div>
+<button id="export-review" type="button" class="primary">Export complete C1.0 review JSON</button>
+</section>
+<section class="next panel"><div><div class="overline">THE SCIENTIFIC GATE</div><h2>Independent review still matters.</h2><p>Archive the original records, obtain independent calibration and safety reviews, preserve a prospectively frozen protocol, then attempt controlled physical tests. No amount of clean software CI can manufacture those real-world milestones.</p></div><div class="nextlinks"><a href="./docs/evidence-integrity-c1-0.md">READ INTEGRITY CONTRACT ↗</a><a href="./observations.html">C0.9 LEDGER ↗</a><a href="./study.html">C0.7 BLINDING ↗</a></div></section>
+</main>
+<footer><span>ΦPRESS · Φ369 LABS · OPEN RESEARCH</span><span>NO DATA TRANSMISSION · NO INDEPENDENT EVIDENCE CLAIMS</span></footer>
+</div><script type="module" src="./assets/integrity.js"></script></body></html>

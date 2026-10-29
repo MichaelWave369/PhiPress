@@ -56,6 +56,12 @@ No electrical, pressure or heated hardware is approved by the tool. The diagram 
 
 The ledger has **no physical equipment connection**, no measurement verification, and no fabricated sample results. Missing measurements are not imputed; raw-data references and declared calibration windows are required. Read the [C0.9 data/provenance contract](./docs/measurement-ledger-c0-9.md).
 
+## C1.0 · Evidence Integrity and Review
+
+**[Open the C1.0 Evidence Integrity Lab](./integrity.html)** to locally hash actual evidence files with SHA-256, build and recheck file manifests, and verify that C0.9 observation and calibration references point to the expected file roles. The included uncertainty-component worksheet reports a simple independent-input budget.
+
+**All files are user-supplied, and no calibration, measurement or physical cleaning result is independently verified.** Read the [integrity and uncertainty contract](./docs/evidence-integrity-c1-0.md).
+
 ## Research priorities
 
 1. Create documented, reproducible textile swatch comparisons.
