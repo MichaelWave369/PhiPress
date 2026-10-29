@@ -111,6 +111,13 @@ export function propagateSoilUncertainty(input={}){
  const uUnaccountedMg=Math.hypot(ui,uq,ue);
  const apparentRemovedMg=i-q;
  const uRemovedMg=Math.hypot(ui,uq);
+ // Exploratory ratio propagation: assumes no covariance with denominator.
+ const uRemovedMgPerMl=x.waterMl>0
+   ?Math.hypot(uRemovedMg/x.waterMl,Math.abs(apparentRemovedMg)*x.uWaterMl/(x.waterMl*x.waterMl))
+   :null;
+ const uRemovedMgPerWh=x.energyWh>0
+   ?Math.hypot(uRemovedMg/x.energyWh,Math.abs(apparentRemovedMg)*x.uEnergyWh/(x.energyWh*x.energyWh))
+   :null;
  const flags=[];
  if(unaccountedMg<0)flags.push('Residual plus recovered soil exceeds input; investigate blanks, contamination or systematic bias.');
  if(removalPct<0)flags.push('Residual exceeds initial soil; negative apparent removal retained.');
@@ -124,7 +131,9 @@ export function propagateSoilUncertainty(input={}){
   unaccountedSoilMg:r(unaccountedMg),uUnaccountedSoilMg:r(uUnaccountedMg),
   removedSoilMg:r(apparentRemovedMg),uRemovedSoilMg:r(uRemovedMg),
   removedMgPerMl:x.waterMl>0?r(apparentRemovedMg/x.waterMl):null,
+  uRemovedMgPerMl:uRemovedMgPerMl===null?null:r(uRemovedMgPerMl),
   removedMgPerWh:x.energyWh>0?r(apparentRemovedMg/x.energyWh):null,
+  uRemovedMgPerWh:uRemovedMgPerWh===null?null:r(uRemovedMgPerWh),
   flags,
   estimatesAreMeasurementsVerified:false,
   k2IsConfidenceInterval:false

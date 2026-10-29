@@ -61,6 +61,16 @@ test('increased measurement uncertainty increases propagated uncertainty',()=>{
  assert.ok(b.uRecoveryPercent>a.uRecoveryPercent);
  assert.ok(b.uUnaccountedSoilMg>a.uUnaccountedSoilMg);
 });
+test('water and energy uncertainties propagate into exploratory intensity ratios',()=>{
+ const a=propagateSoilUncertainty();
+ const b=propagateSoilUncertainty({uWaterMl:10,uEnergyWh:3});
+ assert.ok(a.uRemovedMgPerMl>0&&a.uRemovedMgPerWh>0);
+ assert.ok(b.uRemovedMgPerMl>a.uRemovedMgPerMl);
+ assert.ok(b.uRemovedMgPerWh>a.uRemovedMgPerWh);
+ const c=propagateSoilUncertainty({waterMl:0,energyWh:0});
+ assert.equal(c.uRemovedMgPerMl,null);
+ assert.equal(c.uRemovedMgPerWh,null);
+});
 test('negative removal and negative unaccounted soil are never clamped',()=>{
  const a=propagateSoilUncertainty({residualSoilMg:120,recoveredSoilMg:50});
  assert.ok(a.removalPercent<0);

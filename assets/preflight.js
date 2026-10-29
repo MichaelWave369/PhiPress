@@ -102,13 +102,15 @@ function renderBudget(){
   $('unaccounted').textContent=fmt(budget.unaccountedSoilMg)+' mg';
   $('unaccounted-u').textContent='standard u ≈ '+fmt(budget.uUnaccountedSoilMg,2)+' mg';
   $('water-eff').textContent=budget.removedMgPerMl===null?'undefined':fmt(budget.removedMgPerMl,3)+' mg/mL';
+  $('water-eff-u').textContent=budget.uRemovedMgPerMl===null?'u undefined':'standard u ≈ '+fmt(budget.uRemovedMgPerMl,3)+' mg/mL';
   $('energy-eff').textContent=budget.removedMgPerWh===null?'undefined':fmt(budget.removedMgPerWh,3)+' mg/Wh';
+  $('energy-eff-u').textContent=budget.uRemovedMgPerWh===null?'u undefined':'standard u ≈ '+fmt(budget.uRemovedMgPerWh,3)+' mg/Wh';
   $('budget-warnings').replaceChildren(...budget.flags.map(f=>{
    const li=document.createElement('li');li.textContent=f;return li;
   }));
  }catch(e){
   budget=null;$('input-error').hidden=false;$('input-error').textContent=e.message;
-  for(const id of ['removal','recovery','unaccounted','water-eff','energy-eff'])$(id).textContent='—';
+  for(const id of ['removal','recovery','unaccounted','water-eff','water-eff-u','energy-eff','energy-eff-u'])$(id).textContent='—';
  }
  updateSummary();
 }

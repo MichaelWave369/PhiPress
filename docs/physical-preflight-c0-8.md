@@ -94,7 +94,7 @@ Unaccounted soil can be negative. Never clamp a measurement discrepancy to zero.
 
 ### What this worksheet does *not* do
 
-It does not model covariances or correlations between measurements. It does not correct biases, account for fabric moisture conditioning, separate soil from damaged fibers, or establish the assay's accuracy or sensitivity. Water and energy efficiency ratios are exploratory; resource uncertainties must be evaluated for every derived ratio before reporting a validated resource-efficiency claim. A real test requires a study-specific budget compiled and reviewed by someone competent in measurement science.
+It does not model covariances or correlations between measurements. It does not correct biases, account for fabric moisture conditioning, separate soil from damaged fibers, or establish the assay's accuracy or sensitivity. For the exploratory **removed mass per mL** and **removed mass per Wh** ratios, the worksheet additionally propagates independent numerator and water/energy denominator standard uncertainties by first-order root-sum-of-squares. Both ratios remain subject to background corrections, correlations, and full method validation before any resource-efficiency claim is made. A real test requires a study-specific budget compiled and reviewed by someone competent in measurement science.
 
 ## Stage D · Explicit hazard register
 
