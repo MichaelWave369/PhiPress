@@ -1,0 +1,21 @@
+name: Research bench checks
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  model-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Run deterministic model tests
+        run: node --test tests/*.test.mjs
+      - name: Check module syntax
+        run: |
+          node --check src/engine.mjs
+          node --check assets/app.js
