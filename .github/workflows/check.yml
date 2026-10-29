@@ -31,3 +31,5 @@ jobs:
           node --check assets/evidence.js
           node --check src/study-plan.mjs
           node --check assets/study.js
+          node --check src/preflight.mjs
+          node --check assets/preflight.js

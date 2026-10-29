@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#08141e">
+<meta name="description" content="ΦPRESS C0.8: non-powered fixture mockup clearance study, measurement uncertainty budget, and experiment instrumentation preflight.">
+<title>ΦPRESS C0.8 | Physical Experiment Preflight</title>
+<link rel="stylesheet" href="./assets/style.css">
+<link rel="stylesheet" href="./assets/preflight.css">
+</head>
+<body>
+<div class="shell">
+<header class="topbar">
+<a class="brand" href="./"><span class="mark">Φ</span><span>PRESS<small>RESEARCH LAB / 369</small></span></a>
+<span class="build"><span class="pulse"></span> C0.8 · EXPERIMENT PREFLIGHT</span>
+<a class="repo" href="./study.html">← STUDY PLANNER</a>
+</header>
+<main>
+<section class="hero prep-hero">
+<div class="eyebrow">PHYSICAL TEST PLANNING / NO ENERGIZED HARDWARE</div>
+<h1>Build the <span>evidence.</span></h1>
+<p>Before building the garment-care machine, verify an unpowered fixture envelope, list the instruments that real measurements require, and calculate how uncertainty might affect an apparent cleaning result.</p>
+<div class="hero-tags"><span>UNPOWERED MOCKUP</span><span>WITNESS DIMENSIONS</span><span>UNCERTAINTY BUDGET</span><span>HAZARD REGISTER</span></div>
+</section>
+<div class="disclaimer"><strong>THIS PAGE NEVER APPROVES PHYSICAL APPLIANCE OPERATION.</strong> Default measurements are hypothetical. User-entered values are unverified. The diagrams are schematic, not certified CAD, cut patterns, electrical wiring, thermal design, pressure limits, or a safe build guide. Energized work needs independent qualified review.</div>
+<section class="preset-bar" aria-label="Mockup study examples">
+<button type="button" class="secondary" data-preset="shirt">Shirt candidate</button>
+<button type="button" class="secondary" data-preset="hat">Hat fixture</button>
+<button type="button" class="secondary" data-preset="shoe">Shoe fixture</button>
+<button type="button" class="secondary" data-preset="narrow">Narrow cabinet</button>
+<button type="button" class="secondary" data-preset="blocked">Blocked service access</button>
+</section>
+<section class="preflight-grid">
+<div class="panel design-panel">
+<div class="panelhead"><div><span class="overline">STAGE A · NO POWER</span><h2>Dimensional mockup</h2></div><span class="code">MM UNITS</span></div>
+<div class="inputs">
+<label for="fixture">Fixture style</label>
+<select id="fixture"><option value="shirt">Shirt form</option><option value="hat">Hat cradle</option><option value="shoe">Shoe rack</option></select>
+<label for="measurementsSource">Input origin</label>
+<select id="measurementsSource"><option value="hypothetical">Hypothetical values</option><option value="user-entered-unverified">User-entered, unverified</option></select>
+<label for="stage">Design stage</label>
+<select id="stage"><option value="unpowered">Unpowered mockup</option><option value="future-powered">Future powered concept (never authorized here)</option></select>
+<div class="subdivider">INTERNAL CAVITY, AS MEASURED OR ASSUMED</div>
+<label for="cavityWidthMm">Inner width <output id="cavityWidthMm-out">600 mm</output></label><input id="cavityWidthMm" type="range" min="250" max="1000" step="10" value="600">
+<label for="cavityDepthMm">Inner depth <output id="cavityDepthMm-out">550 mm</output></label><input id="cavityDepthMm" type="range" min="250" max="1000" step="10" value="550">
+<label for="cavityHeightMm">Inner height <output id="cavityHeightMm-out">1280 mm</output></label><input id="cavityHeightMm" type="range" min="500" max="1900" step="20" value="1280">
+<label for="doorOpeningWidthMm">Usable door opening <output id="doorOpeningWidthMm-out">570 mm</output></label><input id="doorOpeningWidthMm" type="range" min="200" max="950" step="10" value="570">
+<label for="serviceReachMm">Accessible service reach <output id="serviceReachMm-out">260 mm</output></label><input id="serviceReachMm" type="range" min="0" max="600" step="10" value="260">
+<div class="subdivider">EXPERIMENTAL CLEARANCE ALLOWANCES</div>
+<label for="widthAllowanceMm">Width allowance <output id="widthAllowanceMm-out">60 mm</output></label><input id="widthAllowanceMm" type="range" min="0" max="200" step="10" value="60">
+<label for="depthAllowanceMm">Depth allowance <output id="depthAllowanceMm-out">60 mm</output></label><input id="depthAllowanceMm" type="range" min="0" max="200" step="10" value="60">
+<label for="heightAllowanceMm">Height allowance <output id="heightAllowanceMm-out">80 mm</output></label><input id="heightAllowanceMm" type="range" min="0" max="200" step="10" value="80">
+<p class="note">Allowances are placeholders for fit testing, not industry-approved installation clearances. The diagram cannot account for door swing, anti-tip supports, garment deformation, leaks, ducts or heat rejection.</p>
+</div>
+</div>
+<div class="panel geometry-panel">
+<div class="panelhead"><div><span class="overline">DIMENSIONED CONCEPT</span><h2>Top and side envelopes</h2></div><span class="code">NOT CAD</span></div>
+<div class="diagram">
+<svg id="geometry-svg" viewBox="0 0 640 580" role="img" aria-label="Scaled top and side fixture envelopes with cavity and allowance dimensions; measurements and materials are hypothetical or user-entered, not fabrication-ready.">
+<defs><pattern id="grid-p" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" stroke="#31444e" stroke-width=".7" fill="none"/></pattern></defs>
+<rect x="0" y="0" width="640" height="580" fill="#091d29"/><rect x="0" y="0" width="640" height="580" fill="url(#grid-p)"/>
+<text x="160" y="29" fill="#8dbbb9" font-size="12" font-weight="bold" text-anchor="middle">TOP VIEW / WIDTH × DEPTH</text>
+<rect id="top-cavity" x="70" y="55" width="200" height="200" fill="#1d4650" stroke="#78cac3" stroke-width="2"/>
+<rect id="top-envelope" x="80" y="65" width="180" height="180" fill="#2b7d7966" stroke="#a0eee0" stroke-width="2" stroke-dasharray="6 4"/>
+<rect id="top-fixture" x="95" y="80" width="150" height="150" rx="7" fill="#5ec9bd44" stroke="#bdf8e8" stroke-width="2"/>
+<text id="top-text" x="160" y="280" fill="#b5e6da" font-size="12" text-anchor="middle">Cavity 600 × 550 mm</text>
+<text id="top-require" x="160" y="300" fill="#90bdb8" font-size="11" text-anchor="middle">Required 530 × 420 mm</text>
+<text x="470" y="29" fill="#8dbbb9" font-size="12" font-weight="bold" text-anchor="middle">SIDE VIEW / DEPTH × HEIGHT</text>
+<rect id="side-cavity" x="372" y="65" width="200" height="385" fill="#1d4650" stroke="#78cac3" stroke-width="2"/>
+<rect id="side-envelope" x="380" y="80" width="180" height="360" fill="#2b7d7966" stroke="#a0eee0" stroke-width="2" stroke-dasharray="6 4"/>
+<rect id="side-fixture" x="399" y="120" width="142" height="285" rx="7" fill="#5ec9bd44" stroke="#bdf8e8" stroke-width="2"/>
+<text id="side-text" x="470" y="478" fill="#b5e6da" font-size="12" text-anchor="middle">Cavity 550 × 1280 mm</text>
+<text id="side-require" x="470" y="498" fill="#90bdb8" font-size="11" text-anchor="middle">Required 420 × 1000 mm</text>
+<text x="320" y="547" text-anchor="middle" fill="#7ea3a9" font-size="11">Schematic ratios only • exact units recorded in exported receipt</text>
+</svg>
+</div>
+<div class="status-line"><strong id="geometry-status">FITS HYPOTHETICAL ENVELOPE</strong><span id="geometry-origin">HYPOTHETICAL VALUES</span></div>
+<div class="margin-list" id="geometry-checks"></div>
+<div class="diagram-actions"><button id="export-svg" type="button" class="secondary">Export labeled SVG sketch</button><button id="export-mockup" type="button" class="primary">Export geometry JSON</button></div>
+</div>
+</section>
+<section class="panel measurement-panel">
+<div class="panelhead"><div><span class="overline">STAGE B · MEASUREMENT DESIGN</span><h2>What could the balance actually tell us?</h2></div><span class="code">UNCERTAINTY MODEL</span></div>
+<div class="measurement-grid">
+<div class="reading-inputs">
+<p>Enter hypothetical or user-observed quantities. Each uncertainty input must be a <strong>standard uncertainty</strong> with its own documented basis, not just whatever digits the instrument displays.</p>
+<label for="reading-source">Reading provenance</label><select id="reading-source"><option value="hypothetical">Hypothetical sample (default)</option><option value="user-entered-unverified">User-entered, unverified</option></select>
+<div class="reading-pair"><label>Initial soil, mg<input id="initialSoilMg" type="number" min="0.001" max="1000000" step="any" value="100"></label><label>Standard u(initial), mg<input id="uInitialMg" type="number" min="0" max="1000000" step="any" value="1"></label></div>
+<div class="reading-pair"><label>Residual soil, mg<input id="residualSoilMg" type="number" min="0" max="1000000" step="any" value="55"></label><label>Standard u(residual), mg<input id="uResidualMg" type="number" min="0" max="1000000" step="any" value="1"></label></div>
+<div class="reading-pair"><label>Recovered soil, mg<input id="recoveredSoilMg" type="number" min="0" max="1000000" step="any" value="30"></label><label>Standard u(recovery), mg<input id="uRecoveredMg" type="number" min="0" max="1000000" step="any" value="1"></label></div>
+<div class="reading-pair"><label>Water input, mL<input id="waterMl" type="number" min="0" max="1000000" step="any" value="120"></label><label>Standard u(water), mL<input id="uWaterMl" type="number" min="0" max="1000000" step="any" value="2"></label></div>
+<div class="reading-pair"><label>Energy, Wh<input id="energyWh" type="number" min="0" max="1000000" step="any" value="12"></label><label>Standard u(energy), Wh<input id="uEnergyWh" type="number" min="0" max="1000000" step="any" value="0.2"></label></div>
+<p class="input-error" id="input-error" role="alert" hidden></p>
+</div>
+<div class="reading-results">
+<div class="result-origin" id="budget-origin">HYPOTHETICAL INPUTS · NOT LAB RESULTS</div>
+<div class="result-grid">
+<div><span>APPARENT REMOVAL</span><strong id="removal">45.0%</strong><small id="removal-u">u ≈ 1.14 percentage points</small></div>
+<div><span>EFFLUENT RECOVERY</span><strong id="recovery">30.0%</strong><small id="recovery-u">u ≈ 1.04 percentage points</small></div>
+<div><span>UNACCOUNTED SOIL</span><strong id="unaccounted">15 mg</strong><small id="unaccounted-u">u ≈ 1.73 mg</small></div>
+<div><span>RESOURCE INTENSITY</span><strong id="water-eff">0.375 mg/mL</strong><small id="water-eff-u">u ≈ — mg/mL</small><small id="energy-eff">3.75 mg/Wh</small><small id="energy-eff-u">u ≈ — mg/Wh</small></div>
+</div>
+<div class="warning-panel"><strong>Critical statistical boundary</strong><p>First-order independent-input uncertainty only. Correlations, blank corrections, systematic errors and between-specimen variation remain unmodeled. A k=2 number is <strong>not automatically</strong> a 95% confidence interval.</p></div>
+<ul id="budget-warnings" class="budget-warnings"></ul>
+</div>
+</div>
+<div class="diagram-actions"><button id="export-budget" type="button" class="secondary">Export uncertainty JSON</button></div>
+</section>
+<section class="preflight-grid lower">
+<div class="panel instrument-panel">
+<div class="panelhead"><div><span class="overline">STAGE C · INSTRUMENT REGISTER</span><h2>Measurement equipment</h2></div><span class="code">SELF-REPORTED</span></div>
+<p class="section-intro">Check only instruments or validated methods actually available. Calibration, uncertainty, and method records still require independent verification.</p>
+<div class="check-rows" id="instrument-list"></div>
+</div>
+<div class="panel hazard-panel">
+<div class="panelhead"><div><span class="overline">STAGE D · HAZARD REGISTER</span><h2>Unresolved risks</h2></div><span class="code">NOT APPROVAL</span></div>
+<p class="section-intro">Reviewing a hazard here never closes a real engineering risk. High-energy and wet electrical experiments remain outside this software's authority.</p>
+<div class="check-rows" id="hazard-list"></div>
+</div>
+</section>
+<section class="panel summary-panel">
+<div class="panelhead"><div><span class="overline">EXPORTABLE RESEARCH RECEIPT</span><h2>Physical test preflight</h2></div><span class="code">NO HARDWARE AUTHORIZATION</span></div>
+<div class="summary-inside">
+<div><span>UNPOWERED MOCKUP ENVELOPE</span><strong id="summary-fit">—</strong></div>
+<div><span>INSTRUMENTS AVAILABLE (CLAIMED)</span><strong id="summary-instruments">0/9</strong></div>
+<div><span>HAZARDS REVIEWED (CLAIMED)</span><strong id="summary-hazards">0/7</strong></div>
+<div class="rejection"><span>ENERGIZED PROTOTYPE APPROVAL</span><strong>NOT GRANTED</strong></div>
+</div>
+<div class="receipt-bottom"><p>The exported receipt records assumptions and self-reported statuses. It cannot establish fabrication readiness, regulatory compliance, clinical/textile claims or independent measurement provenance.</p><button id="export-receipt" type="button" class="primary">Export full preflight JSON</button></div>
+</section>
+<section class="next panel"><div><div class="overline">NEXT STEP · MEASURE, THEN VALIDATE</div><h2>Real-world evidence or nothing.</h2><p>First make an unpowered enclosure fit mockup. Then develop a separately reviewed, calibrated textile testing fixture. Test a simple water jet baseline before spending effort on complex bubble geometry. Our objective is a falsifiable result, not a self-congratulatory chart.</p></div><div class="nextlinks"><a href="./docs/physical-preflight-c0-8.md">PREFLIGHT PROTOCOL ↗</a><a href="./study.html">E0 STUDY PLANNER ↗</a><a href="./evidence.html">E0 EVIDENCE LAB ↗</a></div></section>
+</main>
+<footer><span>ΦPRESS · Φ369 LABS · PEOPLE ABOVE PROFIT</span><span>NO HARDWARE CONNECTIONS · NO VERIFIED MEASUREMENTS</span></footer>
+</div>
+<script type="module" src="./assets/preflight.js"></script>
+</body>
+</html>

@@ -72,6 +72,18 @@
 - [ ] Independently verify safe test fixtures, calibrations and assessor separation
 - [ ] Conduct and publish physical pilot measurements, including negative outcomes
 
+## E0 C0.8 · Physical experiment preflight and metrology
+- [x] Scaled top/side **unpowered** garment form envelope study with dimension margin failure cases
+- [x] Clearly labeled non-fabrication SVG sketch and standalone JSON research receipts
+- [x] Instrument capability checklist for soil, effluent, water, energy, geometry and textile wear
+- [x] First-order uncertainty propagation for apparent soil removal, recovery and unaccounted soil
+- [x] Explicit unresolved wet/electrical, heat, pressure, battery and contamination hazard register
+- [x] Pure deterministic model tests, failure-path guards and no energized hardware approvals
+- [ ] Replace all nominal dimensions with independently measured garment/fixture and cabinet data
+- [ ] Acquire and verify calibration, traceability, repeatability and laboratory safety reviews
+- [ ] Collect actual blank-corrected independent textile swatch evidence after frozen protocol
+- [ ] Validate ventilation, effluent capture and textile durability with a qualified physical laboratory
+
 ## Rung 2 · Credible numerical exploration
 - [ ] Establish conservation-based equations, not arbitrary efficiency scoring
 - [ ] Compare vortex geometries and a simple-jet baseline
