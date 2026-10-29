@@ -12,6 +12,14 @@
 - [x] Initial architecture, hazards, and E0 experimental design
 - [ ] Manually enable GitHub Pages for online access after merging
 
+## Cabinet C0.2 · ClosetVault / Φ-Midifier / battery feasibility
+- [x] Slim closet cabinet architectural concept (not validated dimensions)
+- [x] Separation of low-energy garment preservation from active wet cleaning and hot drying
+- [x] Distinct optional Φ-Midifier acoustic/vibration research module, not mistaken for a humidifier
+- [x] Interactive battery energy calculator with peak-power feasibility gate
+- [ ] Measured temperature/RH/condensation and standby-energy dataset
+- [ ] Dedicated isolation, ventilation and thermal safety review before an actual closet installation
+
 ## Rung 2 · Credible numerical exploration
 - [ ] Establish conservation-based equations, not arbitrary efficiency scoring
 - [ ] Compare vortex geometries and a simple-jet baseline
