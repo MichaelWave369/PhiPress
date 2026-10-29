@@ -18,6 +18,10 @@ A browser-based visualization illustrates a **toy particle-transport model** wit
 
 Read [the cabinet architecture and constraints](./docs/closetvault-concept.md).
 
+## ClosetVault Supervisor C0.3
+
+Explore the [offline advisory supervisor](./supervisor.html) that compares simulated temperature, relative humidity, dew-point margin, leak, vent, fabric, tank, battery and AC constraints against proposed operating modes. It produces explainable receipts. It is not connected to equipment and is explicitly **not a safety controller**. See [Supervisor design notes](./docs/closetvault-supervisor.md).
+
 ## Research priorities
 
 1. Create documented, reproducible textile swatch comparisons.

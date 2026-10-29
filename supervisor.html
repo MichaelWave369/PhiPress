@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#08141e">
+<meta name="description" content="ΦPRESS ClosetVault advisory sensor and power decision simulator. No physical equipment control.">
+<title>ΦPRESS ClosetVault · Supervisor C0.3</title>
+<link rel="stylesheet" href="./assets/style.css">
+<link rel="stylesheet" href="./assets/supervisor.css">
+</head>
+<body>
+<div class="shell">
+<header class="topbar">
+<a class="brand" href="./"><span class="mark">Φ</span><span>PRESS<small>RESEARCH LAB / 369</small></span></a>
+<span class="build"><span class="pulse"></span> C0.3 · OFFLINE SUPERVISOR LAB</span>
+<a class="repo" href="./closetvault.html">← CLOSETVAULT</a>
+</header>
+<main>
+<section class="hero">
+<div class="eyebrow">LOCAL-FIRST DECISION SIMULATOR</div>
+<h1>Think before <span>acting.</span></h1>
+<p>Experiment with sensor readings, room conditions and energy constraints. The simulated supervisor chooses whether a wardrobe mode meets an <strong>illustrative policy</strong>, not whether a real appliance is electrically or mechanically safe.</p>
+</section>
+<div class="disclaimer" role="note"><strong>NOT A HARDWARE CONTROLLER.</strong> No sensor is connected, no heater or pump is switched, and a green result does not certify a safe device. Real interlocks must be independent, professionally reviewed hardware. Thresholds are provisional design examples.</div>
+<section class="scenario-buttons" aria-label="Example scenarios">
+<button class="secondary" data-scenario="normal" type="button">Normal storage</button>
+<button class="secondary" data-scenario="humid" type="button">Humid closet</button>
+<button class="secondary" data-scenario="condensation" type="button">Cold wall</button>
+<button class="secondary" data-scenario="leak" type="button">Leak detected</button>
+<button class="secondary" data-scenario="battery" type="button">Battery only</button>
+</section>
+<div class="supervisor-grid">
+<section class="panel sensor-panel" aria-label="Conceptual sensor inputs">
+<div class="panelhead"><div><span class="overline">SENSOR SNAPSHOT</span><h2>Conditions & requested mode</h2></div><span class="code">SIMULATED</span></div>
+<div class="input-grid">
+<label for="requested">Requested function</label><select id="requested">
+<option value="watch">Sensor Watch</option><option value="preserve">Preservation Airflow</option>
+<option value="midifier">Φ-Midifier Vibration</option><option value="refresh">Gentle Refresh</option>
+<option value="bubblegear">BubbleGear Wet Clean</option><option value="finish">Thermal Dry + Press</option>
+</select>
+<label for="temp">Air temperature <output id="temp-out">22 °C</output></label>
+<input id="temp" type="range" min="5" max="40" step="1" value="22">
+<label for="rh">Relative humidity <output id="rh-out">48%</output></label>
+<input id="rh" type="range" min="20" max="95" step="1" value="48">
+<label for="surface">Coldest surface <output id="surface-out">20 °C</output></label>
+<input id="surface" type="range" min="0" max="40" step="1" value="20">
+<label for="battery">Battery remaining <output id="battery-out">300 Wh</output></label>
+<input id="battery" type="range" min="0" max="1500" step="25" value="300">
+<label for="peak">Battery continuous rating <output id="peak-out">150 W</output></label>
+<input id="peak" type="range" min="25" max="1500" step="25" value="150">
+</div>
+<div class="switch-grid">
+<label><input id="sensorFresh" type="checkbox" checked> Sensors fresh</label>
+<label><input id="doorClosed" type="checkbox" checked> Door closed</label>
+<label><input id="leakDry" type="checkbox" checked> No leak reported</label>
+<label><input id="ventilationClear" type="checkbox" checked> Vent path clear</label>
+<label><input id="tankReady" type="checkbox" checked> Recovery tank ready</label>
+<label><input id="wetBayIsolated" type="checkbox" checked> Wet bay isolated</label>
+<label><input id="materialApproved" type="checkbox" checked> Fabric reviewed</label>
+<label><input id="mainsAvailable" type="checkbox" checked> Mains connected</label>
+</div>
+</section>
+<section class="panel decision-panel" aria-label="Decision model results">
+<div class="panelhead"><div><span class="overline">POLICY RECEIPT</span><h2>Decision & explanations</h2></div><span class="code">RULES 0.3</span></div>
+<div class="decision-state"><div class="decision-label">SIMULATED DECISION</div><strong id="decision-status" aria-live="polite">ELIGIBLE IN MODEL</strong><p id="decision-description">A conceptual policy check, not approval for hardware operation.</p></div>
+<div class="readings">
+<div><span>DEW POINT</span><strong id="dew-point">—</strong></div>
+<div><span>COLD SURFACE MARGIN</span><strong id="dew-margin">—</strong></div>
+<div><span>PROFILE ENERGY / DAY</span><strong id="daily-energy">—</strong></div>
+<div><span>POWER PATH</span><strong id="power-path">—</strong></div>
+</div>
+<h3 class="subhead">Guard checks</h3>
+<ul id="guard-checks" class="guard-list" aria-live="polite"></ul>
+<h3 class="subhead">Notes & cautions</h3>
+<ul id="warnings" class="warning-list"></ul>
+<div class="receipt-actions"><button type="button" class="secondary" id="copy-receipt">Copy model receipt</button><span id="copy-feedback" role="status"></span></div>
+</section>
+</div>
+<section class="next panel"><div><div class="overline">SAFE ENGINEERING PRINCIPLES</div><h2>No silent override.</h2><p>Unknown sensors fail model checks. Wet cleaning and heated pressing are assigned to mains power. Any real equipment requires independently certified electrical, thermal, leak and door protection. A browser cannot replace them.</p></div><div class="nextlinks"><a href="./docs/closetvault-supervisor.md">READ SUPERVISOR SPEC ↗</a><a href="./closetvault.html">POWER LAB ↗</a><a href="./">BUBBLEGEAR LAB ↗</a></div></section>
+</main>
+<footer><span>ΦPRESS · Φ369 LABS · PEOPLE ABOVE PROFIT</span><span>DETERMINISTIC SIMULATION · NEVER ACTUATES HARDWARE</span></footer>
+</div>
+<script type="module" src="./assets/supervisor.js"></script>
+</body></html>
