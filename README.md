@@ -38,6 +38,12 @@ Explore the [offline advisory supervisor](./supervisor.html) that compares simul
 
 The default chart is clearly labeled **synthetic demo, not physical evidence**. Uploaded CSV readings are user-supplied and unverified. Details: [E0 data contract and experiment method](./docs/e0-evidence-lab.md).
 
+## E0 C0.7 · Preregistration preparation and masked assessment
+
+**[Open the E0 Study Planner](./study.html)** for deterministic blocked allocation across the six planned conditions, separate operator keys and masked assessor worksheets, a local plan fingerprint, self-reported readiness checklist, and strict unblinding that audits missing, swapped and incomplete records.
+
+This is **not trusted preregistration, verified lab work or a hardware safety approval**. Read [the C0.7 process and limits](./docs/e0-study-readiness.md). No real trials have been performed.
+
 ## Research priorities
 
 1. Create documented, reproducible textile swatch comparisons.
